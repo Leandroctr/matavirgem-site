@@ -1,32 +1,90 @@
-  <!DOCTYPE html>
-<html>
+<!DOCTYPE html>
+
+<html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Terreiro Mata Virgem</title>
 
 <style>
 
 body{
-font-family: Arial;
 margin:0;
-background:#f4f4f4;
+font-family:Arial, sans-serif;
+background:#0f2e1a;
+color:#eee;
+scroll-behavior:smooth;
 }
 
-header{
-background:#399042;
-color:white;
-padding:40px;
+nav{
+background:#08170e;
+padding:15px;
+position:sticky;
+top:0;
+z-index:10;
 text-align:center;
 }
 
+nav a{
+color:#f1c40f;
+margin:0 15px;
+text-decoration:none;
+font-weight:bold;
+}
+
+header{
+background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),
+url("https://images.unsplash.com/photo-1519681393784-d120267933ba");
+background-size:cover;
+background-position:center;
+padding:120px 20px;
+text-align:center;
+}
+
+header h1{
+font-size:42px;
+margin:0;
+color:#f1c40f;
+}
+
+header p{
+font-size:20px;
+}
+
 section{
-max-width:900px;
+max-width:1000px;
 margin:auto;
-padding:40px 20px;
+padding:60px 20px;
 }
 
 h2{
-margin-top:0;
+color:#f1c40f;
+margin-bottom:20px;
+border-bottom:2px solid #f1c40f;
+padding-bottom:10px;
+}
+
+p{
+line-height:1.6;
+}
+
+iframe{
+width:100%;
+border:0;
+border-radius:10px;
+margin-top:20px;
+}
+
+.galeria{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:15px;
+}
+
+.galeria img{
+width:100%;
+border-radius:10px;
 }
 
 .whatsapp{
@@ -35,60 +93,117 @@ bottom:20px;
 right:20px;
 background:#25D366;
 color:white;
-padding:15px 20px;
+padding:16px 22px;
 border-radius:30px;
 text-decoration:none;
 font-weight:bold;
+box-shadow:0 0 10px rgba(0,0,0,0.4);
+}
+
+.instagram{
+display:inline-block;
+margin-top:20px;
+background:#E4405F;
+color:white;
+padding:12px 20px;
+border-radius:25px;
+text-decoration:none;
 }
 
 footer{
-background:#1c1c1c;
-color:white;
+background:#08170e;
 text-align:center;
-padding:20px;
+padding:40px;
+color:#aaa;
 }
 
-iframe{
-width:100%;
-border:0;
-border-radius:10px;
+@media(max-width:700px){
+
+header h1{
+font-size:30px;
+}
+
 }
 
 </style>
+
 </head>
 
 <body>
 
+<nav>
+<a href="#sobre">Sobre</a>
+<a href="#agenda">Agenda</a>
+<a href="#fotos">Fotos</a>
+<a href="#local">Localização</a>
+</nav>
+
 <header>
-<img src="logo.png" style="width:140px;margin-bottom:15px;">
+
 <h1>Terreiro Mata Virgem</h1>
 <p>Ensino • Trabalho • Fé</p>
+
 </header>
 
-<section>
+<section id="sobre">
+
 <h2>Sobre a Casa</h2>
+
 <p>
-Casa espiritual dedicada ao estudo e prática da Umbanda e Jurema Sagrada, com trabalhos voltados a compreensão,
-orientação espiritual e desenvolvimento mediúnico.
+Casa espiritual dedicada ao estudo e prática da Umbanda e da Jurema Sagrada.
+Realizamos trabalhos espirituais voltados à caridade, orientação espiritual,
+desenvolvimento mediúnico e fortalecimento da fé.
 </p>
+
+<p>
+Nosso objetivo é acolher, orientar e ajudar aqueles que buscam equilíbrio espiritual
+e evolução através da caridade e do conhecimento.
+</p>
+
+<a class="instagram" href="https://instagram.com" target="_blank">
+Visitar Instagram
+</a>
+
 </section>
 
-<section>
+<section id="agenda">
+
 <h2>Agenda de Giras</h2>
 
-<!-- AGENDA GOOGLE -->
-<iframe src="<iframe src="https://calendar.google.com/calendar/embed?src=c_c9152bbc54d3c12e71ec1a0261b0e4746222ce1b777c2ece43f3f0c451637b9c%40group.calendar.google.com&ctz=America%2FSao_Paulo" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>"
-height="600"></iframe>
+<iframe
+src="https://calendar.google.com/calendar/embed?src=c_c9152bbc54d3c12e71ec1a0261b0e4746222ce1b777c2ece43f3f0c451637b9c%40group.calendar.google.com&ctz=America%2FSao_Paulo"
+height="600"
+scrolling="no">
+</iframe>
 
 </section>
 
-<section>
+<section id="fotos">
+
+<h2>Galeria</h2>
+
+<div class="galeria">
+
+<img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773">
+
+<img src="https://images.unsplash.com/photo-1519681393784-d120267933ba">
+
+<img src="https://images.unsplash.com/photo-1470252649378-9c29740c9fa8">
+
+<img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee">
+
+</div>
+
+</section>
+
+<section id="local">
+
 <h2>Localização</h2>
 
-<!-- MAPA -->
 <iframe
-src="<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3655.073346563076!2d-46.52112472488836!3d-23.637544178747557!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce42a0de581999%3A0xc8030c2fd960ca90!2sR.%20Espanha%2C%201178%20-%20Parque%20das%20Na%C3%A7%C3%B5es%2C%20Santo%20Andr%C3%A9%20-%20SP%2C%2009210-010!5e0!3m2!1spt-BR!2sbr!4v1773346327800!5m2!1spt-BR!2sbr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>"
-height="400">
+src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3655.073346563076!2d-46.52112472488836!3d-23.637544178747557!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce42a0de581999%3A0xc8030c2fd960ca90!2sR.%20Espanha%2C%201178%20-%20Parque%20das%20Na%C3%A7%C3%B5es%2C%20Santo%20Andr%C3%A9%20-%20SP%2C%2009210-010!5e0!3m2!1spt-BR!2sbr!4v1773346327800!5m2!1spt-BR!2sbr"
+height="400"
+loading="lazy">
 </iframe>
 
 </section>
@@ -96,11 +211,13 @@ height="400">
 <a class="whatsapp"
 href="https://wa.me/5511969444666?text=Olá%20gostaria%20de%20informações%20sobre%20as%20giras"
 target="_blank">
-WhatsApp
-</a>
+WhatsApp </a>
 
 <footer>
-Terreiro Mata Virgem
+
+Terreiro Mata Virgem <br><br>
+Ensino • Tradição • Umbanda
+
 </footer>
 
 </body>
