@@ -3,7 +3,6 @@
 <html lang="pt-BR">
 
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -24,7 +23,6 @@ background:#08170e;
 padding:15px;
 position:sticky;
 top:0;
-z-index:10;
 text-align:center;
 }
 
@@ -36,27 +34,22 @@ font-weight:bold;
 }
 
 header{
-background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url("capa.jpg");
+background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url("capa.jpg");
 background-size:cover;
 background-position:center;
 padding:140px 20px;
 text-align:center;
 }
 
-header h1{
-font-size:42px;
-margin:0;
-color:#f1c40f;
-}
-
 header img{
 width:230px;
-margin-top:25px;
+margin-top:20px;
 }
 
-header p{
-font-size:20px;
-margin-top:15px;
+header h1{
+color:#f1c40f;
+font-size:40px;
+margin:0;
 }
 
 section{
@@ -67,20 +60,21 @@ padding:60px 20px;
 
 h2{
 color:#f1c40f;
-margin-bottom:20px;
 border-bottom:2px solid #f1c40f;
 padding-bottom:10px;
 }
 
-p{
-line-height:1.6;
+.agenda{
+margin-top:30px;
 }
 
-iframe{
-width:100%;
-border:0;
+.evento{
+background:#0b2214;
+padding:20px;
 border-radius:10px;
-margin-top:20px;
+border-left:4px solid #f1c40f;
+margin-bottom:15px;
+font-size:18px;
 }
 
 .galeria{
@@ -94,8 +88,10 @@ width:100%;
 border-radius:10px;
 }
 
-.contato{
-font-size:18px;
+iframe{
+width:100%;
+border:0;
+border-radius:10px;
 margin-top:20px;
 }
 
@@ -109,36 +105,12 @@ padding:16px 22px;
 border-radius:30px;
 text-decoration:none;
 font-weight:bold;
-box-shadow:0 0 10px rgba(0,0,0,0.4);
-}
-
-.instagram{
-display:inline-block;
-margin-top:20px;
-background:#E4405F;
-color:white;
-padding:12px 20px;
-border-radius:25px;
-text-decoration:none;
 }
 
 footer{
 background:#08170e;
 text-align:center;
 padding:40px;
-color:#aaa;
-}
-
-@media(max-width:700px){
-
-header h1{
-font-size:30px;
-}
-
-header img{
-width:180px;
-}
-
 }
 
 </style>
@@ -148,15 +120,16 @@ width:180px;
 <body>
 
 <nav>
-
-<a href="#sobre">Sobre</a> <a href="#agenda">Agenda</a> <a href="#fotos">Fotos</a> <a href="#local">Localização</a> <a href="#contato">Contato</a>
-
+<a href="#sobre">Sobre</a>
+<a href="#agenda">Agenda</a>
+<a href="#fotos">Fotos</a>
+<a href="#local">Localização</a>
+<a href="#contato">Contato</a>
 </nav>
 
 <header>
 
 <h1>Templo Escola Aruanda de Mata Virgem</h1>
-
 <img src="logo.png">
 
 <p>Ensino • Trabalho • Fé</p>
@@ -177,24 +150,15 @@ Nosso objetivo é acolher, orientar e ajudar aqueles que buscam equilíbrio espi
 e evolução através da prática e do conhecimento.
 </p>
 
-<a class="instagram" href="https://www.instagram.com/te.aruanda?igsh=OGM5Y2tuZG5yc3dv&utm_source=qr" target="_blank">
-Visitar Instagram
-</a>
-
 </section>
 
 <section id="agenda">
 
 <h2>Agenda de Giras</h2>
 
-<iframe
-src="https://calendar.google.com/calendar/embed?mode=AGENDA&showTitle=0&showTabs=0&showCalendars=0&showPrint=0&showDate=1&src=c_c9152bbc54d3c12e71ec1a0261b0e4746222ce1b777c2ece43f3f0c451637b9c%40group.calendar.google.com&ctz=America%2FSao_Paulo"
-style="border:0"
-width="800"
-height="600"
-frameborder="0"
-scrolling="no">
-</iframe>
+<div id="listaAgenda" class="agenda">
+Carregando agenda...
+</div>
 
 </section>
 
@@ -218,10 +182,7 @@ scrolling="no">
 <h2>Localização</h2>
 
 <iframe
-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3655.073346563076!2d-46.52112472488836!3d-23.637544178747557!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce42a0de581999%3A0xc8030c2fd960ca90!2sR.%20Espanha%2C%201178%20-%20Parque%20das%20Na%C3%A7%C3%B5es%2C%20Santo%20Andr%C3%A9%20-%20SP%2C%2009210-010!5e0!3m2!1spt-BR!2sbr!4v1773346327800!5m2!1spt-BR!2sbr"
-height="400"
-loading="lazy">
-
+src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3655.073346563076!2d-46.52112472488836!3d-23.637544178747557!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce42a0de581999%3A0xc8030c2fd960ca90!2sR.%20Espanha%2C%201178%20-%20Parque%20das%20Na%C3%A7%C3%B5es%2C%20Santo%20Andr%C3%A9%20-%20SP%2C%2009210-010!5e0!3m2!1spt-BR!2sbr">
 </iframe>
 
 </section>
@@ -230,11 +191,7 @@ loading="lazy">
 
 <h2>Contato</h2>
 
-<div class="contato">
-
-Email: [contato@matavirgem.org](mailto:contato@matavirgem.org)
-
-</div>
+<p>Email: <a href="mailto:contato@matavirgem.com">contato@matavirgem.com</a></p>
 
 </section>
 
@@ -253,6 +210,47 @@ Ensino • Tradição • Umbanda
 
 </footer>
 
-</body>
+<script>
 
+const url = "https://api.allorigins.win/raw?url=https://calendar.google.com/calendar/ical/c_c9152bbc54d3c12e71ec1a0261b0e4746222ce1b777c2ece43f3f0c451637b9c%40group.calendar.google.com/public/basic.ics";
+
+fetch(url)
+.then(r => r.text())
+.then(data => {
+
+const eventos = data.split("BEGIN:VEVENT");
+let html = "";
+
+eventos.forEach(ev => {
+
+const titulo = (ev.match(/SUMMARY:(.*)/)||[])[1];
+const dataEvento = (ev.match(/DTSTART.*:(.*)/)||[])[1];
+
+if(titulo && dataEvento){
+
+const y=dataEvento.slice(0,4);
+const m=dataEvento.slice(4,6);
+const d=dataEvento.slice(6,8);
+const h=dataEvento.slice(9,11)||"00";
+const mi=dataEvento.slice(11,13)||"00";
+
+const dataObj = new Date(`${y}-${m}-${d}T${h}:${mi}:00`);
+
+const dia = dataObj.toLocaleDateString("pt-BR",{weekday:"long"});
+const dataFmt = dataObj.toLocaleDateString("pt-BR");
+const hora = dataObj.toLocaleTimeString("pt-BR",{hour:"2-digit",minute:"2-digit"});
+
+html += `<div class="evento"><b>${titulo}</b><br>${dia} • ${dataFmt} • ${hora}</div>`;
+
+}
+
+});
+
+document.getElementById("listaAgenda").innerHTML = html;
+
+});
+
+</script>
+
+</body>
 </html>
