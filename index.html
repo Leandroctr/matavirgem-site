@@ -13,31 +13,59 @@
 body{
 margin:0;
 font-family:Arial, sans-serif;
-background:#0f2e1a;
 color:#eee;
 scroll-behavior:smooth;
+
+/* FUNDO COM TEXTURA ESPIRITUAL */
+
+background-color:#0f2e1a;
+
+background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 100 100'%3E%3Cpolygon points='50,5 61,38 95,38 67,59 78,91 50,70 22,91 33,59 5,38 39,38' fill='none' stroke='%23f1c40f' stroke-width='1' opacity='0.06'/%3E%3C/svg%3E");
+
+background-size:140px;
+
 }
+
+/* NAV */
 
 nav{
 background:#08170e;
 padding:15px;
 position:sticky;
 top:0;
-text-align:center;
+display:flex;
+justify-content:center;
+align-items:center;
+gap:20px;
+flex-wrap:wrap;
 }
 
 nav a{
 color:#f1c40f;
-margin:0 15px;
 text-decoration:none;
 font-weight:bold;
 }
 
-section a{
-color:#f1c40f;
-text-decoration:none;
-font-weight:bold;
+/* REDES TOPO */
+
+.redesTopo{
+display:flex;
+gap:12px;
 }
+
+.redesTopo svg{
+width:22px;
+height:22px;
+cursor:pointer;
+transition:0.3s;
+}
+
+.redesTopo svg:hover{
+transform:scale(1.2);
+filter:drop-shadow(0 0 6px gold);
+}
+
+/* HEADER */
 
 header{
 background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url("capa.jpg");
@@ -71,17 +99,7 @@ border-bottom:2px solid #f1c40f;
 padding-bottom:10px;
 }
 
-.contatoItem{
-display:flex;
-align-items:center;
-gap:10px;
-margin-top:15px;
-}
-
-.contatoItem svg{
-width:22px;
-height:22px;
-}
+/* PROXIMA GIRA */
 
 #proximaGira{
 text-align:center;
@@ -105,6 +123,8 @@ border-radius:12px;
 box-shadow:0 0 20px rgba(0,0,0,0.6);
 }
 
+/* EVENTOS */
+
 .evento{
 background:#0b2214;
 padding:20px;
@@ -113,6 +133,8 @@ border-left:4px solid #f1c40f;
 margin-bottom:18px;
 font-size:18px;
 }
+
+/* GALERIA */
 
 .galeria{
 display:grid;
@@ -125,12 +147,30 @@ width:100%;
 border-radius:10px;
 }
 
+/* MAPA */
+
 iframe{
 width:100%;
 border-radius:10px;
 border:0;
 margin-top:20px;
 }
+
+/* CONTATO */
+
+.contatoItem{
+display:flex;
+align-items:center;
+gap:10px;
+margin-top:15px;
+}
+
+.contatoItem svg{
+width:24px;
+height:24px;
+}
+
+/* FOOTER */
 
 footer{
 background:#08170e;
@@ -139,7 +179,7 @@ padding:40px;
 margin-top:40px;
 }
 
-/* BOTÃO FLUTUANTE */
+/* BOTÃO CANAL */
 
 .botaoFlutuante{
 position:fixed;
@@ -176,6 +216,22 @@ transform:translateY(0);
 
 }
 
+@media(max-width:700px){
+
+header img{
+width:220px;
+}
+
+header h1{
+font-size:28px;
+}
+
+.bannerProxima{
+max-width:90%;
+}
+
+}
+
 </style>
 
 </head>
@@ -183,12 +239,29 @@ transform:translateY(0);
 <body>
 
 <nav>
-<a href="#sobre">Sobre</a>
-<a href="#proximaGira">Próxima Gira</a>
-<a href="#agenda">Agenda</a>
-<a href="#fotos">Fotos</a>
-<a href="#local">Localização</a>
-<a href="#contato">Contato</a>
+
+<a href="#sobre">Sobre</a> <a href="#proximaGira">Próxima Gira</a> <a href="#agenda">Agenda</a> <a href="#fotos">Fotos</a> <a href="#local">Localização</a> <a href="#contato">Contato</a>
+
+<div class="redesTopo">
+
+<a href="https://instagram.com/te.aruanda" target="_blank">
+
+<svg fill="#E4405F" viewBox="0 0 24 24">
+<path d="M7 2C4.2 2 2 4.2 2 7v10c0 2.8 2.2 5 5 5h10c2.8 0 5-2.2 5-5V7c0-2.8-2.2-5-5-5H7zm5 5.2A4.8 4.8 0 1112 17a4.8 4.8 0 010-9.8zm6.4-.8a1.2 1.2 0 11-2.4 0 1.2 1.2 0 012.4 0z"/>
+</svg>
+
+</a>
+
+<a href="https://wa.me/5511969444666" target="_blank">
+
+<svg fill="#25D366" viewBox="0 0 24 24">
+<path d="M20 3.5A11.94 11.94 0 0012.05 0C5.48 0 .15 5.33.15 11.9c0 2.1.55 4.16 1.6 5.98L0 24l6.29-1.64A11.9 11.9 0 0012.05 24C18.62 24 24 18.67 24 12.1c0-3.18-1.24-6.17-3.5-8.6z"/>
+</svg>
+
+</a>
+
+</div>
+
 </nav>
 
 <header>
@@ -208,18 +281,6 @@ transform:translateY(0);
 <div class="bannerProxima">
 <img src="proxima.jpg">
 </div>
-
-</section>
-
-<section id="sobre">
-
-<h2>Sobre a Casa</h2>
-
-<p>
-Casa espiritual dedicada ao estudo e prática da Umbanda e da Jurema Sagrada.
-Realizamos trabalhos espirituais voltados à caridade, orientação espiritual,
-desenvolvimento mediúnico e fortalecimento da fé.
-</p>
 
 </section>
 
@@ -261,31 +322,6 @@ desenvolvimento mediúnico e fortalecimento da fé.
 26/04 • Domingo<br>
 <b>EVENTO – Samba e Feijoada de Ogum</b>
 </div>
-
-</section>
-
-<section id="fotos">
-
-<h2>Galeria</h2>
-
-<div class="galeria">
-
-<img src="altar.jpeg">
-<img src="povo.jpeg">
-<img src="caldeirao.jpeg">
-<img src="esq.jpeg">
-
-</div>
-
-</section>
-
-<section id="local">
-
-<h2>Localização</h2>
-
-<iframe
-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3655.073346563076!2d-46.52112472488836!3d-23.637544178747557!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce42a0de581999%3A0xc8030c2fd960ca90!2sR.%20Espanha%2C%201178%20-%20Parque%20das%20Na%C3%A7%C3%B5es%2C%20Santo%20Andr%C3%A9%20-%20SP%2C%2009210-010!5e0!3m2!1spt-BR!2sbr">
-</iframe>
 
 </section>
 
