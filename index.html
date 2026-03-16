@@ -139,13 +139,53 @@ padding:14px 20px;
 border-radius:30px;
 border:2px solid #f1c40f;
 font-weight:bold;
-text-decoration:none;
+cursor:pointer;
 z-index:1000;
 }
 
 .botaoFlutuante:hover{
 background:#f1c40f;
 color:#08170e;
+}
+
+/* POPUP */
+
+.popup{
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.7);
+justify-content:center;
+align-items:center;
+z-index:2000;
+}
+
+.popupConteudo{
+background:#08170e;
+padding:25px;
+border-radius:10px;
+width:90%;
+max-width:500px;
+position:relative;
+}
+
+.fechar{
+position:absolute;
+top:10px;
+right:15px;
+cursor:pointer;
+font-size:22px;
+color:#f1c40f;
+}
+
+.mensagemConfirmacao{
+margin-top:10px;
+font-size:14px;
+color:#f1c40f;
+text-align:center;
 }
 
 @media(max-width:700px){
@@ -219,7 +259,6 @@ e evolução através da prática e do conhecimento.
 <section id="agenda">
 
 <h2>Agenda de Giras</h2>
-
 
 <div class="evento">
 21/03 • Sábado • 15:00<br>
@@ -310,13 +349,45 @@ Ensino • Caridade • Espiritualidade
 
 <!-- BOTÃO FLUTUANTE -->
 
-<a class="botaoFlutuante"
-href="https://docs.google.com/forms/d/e/1FAIpQLSduPbXNlLQlUoFTDP8ktRtE2vMchGeiXEpG9EAIDzVq1-NdtA/viewform?usp=header"
-target="_blank">
-
+<div class="botaoFlutuante" onclick="abrirFormulario()">
 Quero saber das próximas giras
+</div>
 
-</a>
+<!-- POPUP FORMULARIO -->
+
+<div id="popupFormulario" class="popup">
+
+<div class="popupConteudo">
+
+<span class="fechar" onclick="fecharFormulario()">✕</span>
+
+<iframe 
+src="https://docs.google.com/forms/d/e/1FAIpQLSduPbXNlLQlUoFTDP8ktRtE2vMchGeiXEpG9EAIDzVq1-NdtA/viewform?embedded=true"
+width="100%" 
+height="500"
+frameborder="0">
+Carregando…
+</iframe>
+
+<p class="mensagemConfirmacao">
+Após enviar o formulário você receberá emails com nossas programações.
+</p>
+
+</div>
+
+</div>
+
+<script>
+
+function abrirFormulario(){
+document.getElementById("popupFormulario").style.display="flex";
+}
+
+function fecharFormulario(){
+document.getElementById("popupFormulario").style.display="none";
+}
+
+</script>
 
 </body>
 </html>
