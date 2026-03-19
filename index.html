@@ -17,8 +17,6 @@ color:#eee;
 scroll-behavior:smooth;
 background:#0f2e1a;
 
-/* textura estrela de davi */
-
 background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 100 100'%3E%3Cpolygon points='50,10 90,75 10,75' fill='none' stroke='%23f1c40f' stroke-width='1' opacity='0.05'/%3E%3Cpolygon points='50,90 10,25 90,25' fill='none' stroke='%23f1c40f' stroke-width='1' opacity='0.05'/%3E%3C/svg%3E");
 
 background-size:120px;
@@ -44,45 +42,56 @@ text-decoration:none;
 font-weight:bold;
 }
 
-/* REDES TOPO */
-
-.redesTopo{
-display:flex;
-gap:12px;
-}
-
-.redesTopo svg{
-width:22px;
-height:22px;
-cursor:pointer;
-transition:0.3s;
-}
-
-.redesTopo svg:hover{
-transform:scale(1.2);
-filter:drop-shadow(0 0 6px gold);
-}
-
-/* HEADER */
+/* HEADER NOVO */
 
 header{
+position:relative;
 background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url("capa.jpg");
 background-size:cover;
 background-position:center;
-padding:140px 20px;
+min-height:70vh;
+display:flex;
+align-items:center;
+justify-content:center;
 text-align:center;
 }
 
-header h1{
-font-size:40px;
-margin:0;
-color:#f1c40f;
+.conteudoHeader{
+padding:20px;
 }
 
-header img{
-width:360px;
-margin-top:25px;
+/* título */
+
+header h1{
+font-size:32px;
+color:#f1c40f;
+margin:0;
 }
+
+header h2{
+font-size:26px;
+margin:5px 0 10px 0;
+color:#f1c40f;
+font-weight:normal;
+}
+
+/* logo */
+
+header img{
+width:220px;
+margin:15px 0;
+}
+
+/* subtítulo */
+
+.subtitulo{
+font-size:18px;
+color:#fff;
+letter-spacing:1px;
+text-shadow:0 0 10px rgba(0,0,0,0.8);
+}
+
+/* SEÇÕES */
 
 section{
 max-width:1100px;
@@ -103,13 +112,6 @@ padding-bottom:10px;
 text-align:center;
 }
 
-.tituloProxima{
-font-size:34px;
-letter-spacing:3px;
-color:#f1c40f;
-margin-bottom:30px;
-}
-
 .bannerProxima{
 max-width:320px;
 margin:auto;
@@ -119,8 +121,6 @@ margin:auto;
 width:100%;
 border-radius:12px;
 box-shadow:0 0 20px rgba(0,0,0,0.6);
-
-/* animação */
 animation:brilhoBanner 5s infinite ease-in-out;
 }
 
@@ -141,33 +141,6 @@ font-size:18px;
 display:grid;
 grid-template-columns:repeat(4,1fr);
 gap:18px;
-}
-
-@media(max-width:700px){
-
-header{
-padding:80px 20px;
-}
-
-header h1{
-font-size:26px;
-}
-
-header img{
-width:220px;
-margin-top:15px;
-}
-
-.bannerProxima{
-max-width:85%;
-}
-
-}
-
-.galeria{
-grid-template-columns:repeat(2,1fr);
-}
-
 }
 
 .galeria img{
@@ -256,11 +229,6 @@ text-decoration:none;
 font-weight:bold;
 }
 
-.contatoItem svg{
-width:24px;
-height:24px;
-}
-
 /* FOOTER */
 
 footer{
@@ -298,32 +266,55 @@ opacity:1;
 transform:translateY(0);
 }
 
-@keyframes brilhoSuave{
+/* ANIMAÇÕES */
 
+@keyframes brilhoSuave{
 0%{box-shadow:0 0 0 0 rgba(241,196,15,0);}
 40%{box-shadow:0 0 12px 2px rgba(241,196,15,0.35);}
 60%{box-shadow:0 0 18px 4px rgba(241,196,15,0.25);}
 100%{box-shadow:0 0 0 0 rgba(241,196,15,0);}
-
 }
+
 @keyframes brilhoBanner{
-
-0%{
-transform:scale(1);
-box-shadow:0 0 10px rgba(241,196,15,0.1);
+0%{transform:scale(1); box-shadow:0 0 10px rgba(241,196,15,0.1);}
+50%{transform:scale(1.05); box-shadow:0 0 40px rgba(241,196,15,0.6);}
+100%{transform:scale(1); box-shadow:0 0 10px rgba(241,196,15,0.1);}
 }
 
-50%{
-transform:scale(1.03);
-box-shadow:0 0 30px rgba(241,196,15,0.4);
+/* MOBILE */
+
+@media(max-width:700px){
+
+header{
+min-height:60vh;
 }
 
-100%{
-transform:scale(1);
-box-shadow:0 0 10px rgba(241,196,15,0.1);
+header h1{
+font-size:24px;
+}
+
+header h2{
+font-size:20px;
+}
+
+header img{
+width:140px;
+}
+
+.subtitulo{
+font-size:14px;
+}
+
+.galeria{
+grid-template-columns:repeat(2,1fr);
+}
+
+.bannerProxima{
+max-width:85%;
 }
 
 }
+
 </style>
 
 </head>
@@ -331,178 +322,109 @@ box-shadow:0 0 10px rgba(241,196,15,0.1);
 <body>
 
 <nav>
-
-<a href="#agenda">Agenda</a> <a href="#fotos">Fotos</a> <a href="#local">Localização</a> <a href="#contato">Contato</a>
-
-<div class="redesTopo">
-
-<a href="https://instagram.com/te.aruanda" target="_blank">
-
-<svg fill="#E4405F" viewBox="0 0 24 24">
-<path d="M7 2C4.2 2 2 4.2 2 7v10c0 2.8 2.2 5 5 5h10c2.8 0 5-2.2 5-5V7c0-2.8-2.2-5-5-5H7z"/>
-</svg>
-
-</a>
-
-</div>
-
+<a href="#agenda">Agenda</a>
+<a href="#fotos">Fotos</a>
+<a href="#local">Localização</a>
+<a href="#contato">Contato</a>
 </nav>
 
 <header>
 
-<h1>Templo Escola Aruanda de Mata Virgem</h1>
+<div class="conteudoHeader">
+
+<h1>Templo Escola Aruanda</h1>
+<h2>de Mata Virgem</h2>
 
 <img src="logo.png">
 
-<p class="subtitulo">Ensino - Umbanda - Jurema Sagrada</p>
+<p class="subtitulo">Umbanda • Jurema • Caridade</p>
+
+</div>
 
 </header>
 
 <section id="proximaGira">
-
-<h2 class="tituloProxima">PRÓXIMA GIRA</h2>
-
+<h2>PRÓXIMA GIRA</h2>
 <div class="bannerProxima">
 <img src="proxima.jpg">
 </div>
-
 </section>
 
 <section id="agenda">
-
 <h2>Agenda de Giras</h2>
 
 <div class="evento">21/03 • Sábado • 15:00<br><b>Gira de Mestres – Jurema Sagrada</b></div> 
 <div class="evento">27/03 • Sexta • 20:30<br><b>Gira das Almas – Pretos Velhos</b></div>
-<div class="evento">02/04 • Quinta • 20:30<br><b>Exu e Pombogira</b></div>
-<div class="evento">17/04 • Sexta<br><b>Baianos e Boiadeiros</b></div>
-<div class="evento">24/04 • Sexta<br><b>Festa de Ogum – Gira de Caboclos</b></div>
 
 </section>
 
 <section id="fotos">
-
 <h2>Galeria</h2>
 
 <div class="galeria">
-
 <img src="altar.jpeg" onclick="abrirImagem(this.src)">
 <img src="povo.jpeg" onclick="abrirImagem(this.src)">
 <img src="caldeirao.jpeg" onclick="abrirImagem(this.src)">
 <img src="esq.jpeg" onclick="abrirImagem(this.src)">
-
 </div>
 
 <center>
-
-<a class="botaoInstagram"
-href="https://instagram.com/te.aruanda"
-target="_blank">
-
+<a class="botaoInstagram" href="https://instagram.com/te.aruanda" target="_blank">
 Ver mais fotos no Instagram
-
 </a>
-
 </center>
 
 </section>
 
 <section id="local">
-
 <h2>Localização</h2>
-
-<iframe
-src="https://www.google.com/maps?q=Rua%20Espanha%201178%20Santo%20Andre&output=embed">
-</iframe>
-
+<iframe src="https://www.google.com/maps?q=Rua%20Espanha%201178%20Santo%20Andre&output=embed"></iframe>
 </section>
 
 <section id="contato">
-
 <h2>Contato</h2>
 
 <div class="contatoItem">
-
-<a href="https://wa.me/5511969444666" target="_blank">
-
-<svg fill="#25D366" viewBox="0 0 24 24">
-<path d="M20 3.5A11.94 11.94 0 0012.05 0C5.48 0 .15 5.33.15 11.9c0 2.1.55 4.16 1.6 5.98L0 24l6.29-1.64A11.9 11.9 0 0012.05 24C18.62 24 24 18.67 24 12.1c0-3.18-1.24-6.17-3.5-8.6z"/>
-</svg>
-
-</a>
-
-<a href="https://wa.me/5511969444666" target="_blank">
-Dúvidas? Falar no WhatsApp
-</a>
-
+<a href="https://wa.me/5511969444666" target="_blank">WhatsApp</a>
 </div>
 
 <div class="contatoItem">
-
-<a href="https://instagram.com/te.aruanda" target="_blank">
-
-<svg fill="#E4405F" viewBox="0 0 24 24">
-<path d="M7 2C4.2 2 2 4.2 2 7v10c0 2.8 2.2 5 5 5h10c2.8 0 5-2.2 5-5V7c0-2.8-2.2-5-5-5H7z"/>
-</svg>
-
-</a>
-
-<a href="https://instagram.com/te.aruanda" target="_blank">
-@te.aruanda
-</a>
-
+<a href="https://instagram.com/te.aruanda" target="_blank">@te.aruanda</a>
 </div>
 
 </section>
 
 <footer>
-
 Templo Escola Aruanda de Mata Virgem<br><br>
 Ensino • Caridade • Espiritualidade
-
 </footer>
 
 <div class="lightbox" id="lightbox">
-
 <span class="fechar" onclick="fecharImagem()">×</span>
-
 <img id="imagemGrande">
-
 </div>
 
 <a id="botaoCanal" class="botaoFlutuante"
 href="https://whatsapp.com/channel/0029VbBrPIcDp2Q3Wj8J9q22"
 target="_blank">
-
-Entre no canal para receber avisos das giras
-
-</a>
+Entre no canal para receber avisos das giras </a>
 
 <script>
-
 function abrirImagem(src){
-
 document.getElementById("lightbox").style.display="flex"
 document.getElementById("imagemGrande").src=src
-
 }
 
 function fecharImagem(){
-
 document.getElementById("lightbox").style.display="none"
-
 }
 
 window.addEventListener("scroll", function(){
-
 let botao = document.getElementById("botaoCanal")
-
 if(window.scrollY > 300){
 botao.classList.add("mostrar")
 }
-
 })
-
 </script>
 
 </body>
