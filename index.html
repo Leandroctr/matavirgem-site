@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8"/>
@@ -23,6 +22,8 @@
       --creme:      #f6f2ea;
       --creme2:     #ede8de;
       --branco:     #ffffff;
+      --preto:      #0a0a08;
+      --preto-cl:   #1a1a16;
       --texto:      #252520;
       --texto-cl:   #56564e;
     }
@@ -260,8 +261,15 @@
     }
 
     /* ══ SEÇÕES ══ */
-    section { padding: 5.5rem 0; }
+    section { padding: 5.5rem 0; position: relative; }
     .container { max-width:1040px; margin:0 auto; padding:0 2rem; }
+
+    /* Separadores decorativos */
+    section::before {
+      content:''; position:absolute; top:0; left:50%; transform:translateX(-50%);
+      width:80%; height:1px; background:linear-gradient(to right, transparent, rgba(200,168,75,.3), transparent);
+    }
+    section:first-of-type::before { display: none; }
 
     .sec-label {
       display:flex; align-items:center; gap:.7rem;
@@ -296,6 +304,146 @@
     .prox-info p {
       font-size:.88rem; line-height:1.95; font-weight:300;
       color:var(--texto-cl); margin-bottom:1.2rem;
+    }
+
+    /* ══ CURSOS CARD ══ */
+    #cursosCard { 
+      background: linear-gradient(135deg, rgba(10,10,8,.02) 0%, rgba(0,0,0,.04) 100%);
+      padding: 5.5rem 0;
+    }
+    
+    .cursos-card {
+      background: var(--branco);
+      border: 1px solid rgba(200,168,75,.2);
+      border-radius: 2px;
+      padding: 3rem;
+      position: relative;
+      overflow: hidden;
+      margin-top: 2.8rem;
+      transition: all .4s;
+    }
+    
+    .cursos-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 2px;
+      background: linear-gradient(to right, var(--dourado), transparent);
+    }
+    
+    .cursos-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0; right: 0;
+      width: 200px; height: 200px;
+      background: radial-gradient(circle, rgba(200,168,75,.06) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    
+    .cursos-card-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 2rem;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .cursos-card-info h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      font-weight: 300;
+      color: var(--verde);
+      margin-bottom: 0.6rem;
+    }
+    
+    .cursos-card-info p {
+      font-size: .88rem;
+      line-height: 1.8;
+      color: var(--texto-cl);
+      max-width: 500px;
+      margin-bottom: 1.8rem;
+    }
+    
+    .cursos-meta {
+      display: flex;
+      gap: 2rem;
+      font-size: .74rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--dourado);
+      margin-bottom: 1.8rem;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .cursos-meta span { display: flex; align-items: center; gap: .4rem; }
+    .cursos-meta::before {
+      content: '';
+      display: block;
+      width: 1px;
+      height: 20px;
+      background: rgba(200,168,75,.25);
+      position: absolute;
+      left: 90px;
+    }
+    
+    .btn-cursos {
+      display: inline-flex;
+      align-items: center;
+      gap: .6rem;
+      padding: .8rem 1.8rem;
+      background: var(--verde);
+      color: var(--dourado-cl);
+      text-decoration: none;
+      font-size: .72rem;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      border-radius: 2px;
+      transition: all .3s;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .btn-cursos:hover {
+      background: var(--verde-med);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(27,58,34,.2);
+    }
+    
+    .cursos-badge {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 140px;
+      height: 140px;
+      border-radius: 2px;
+      background: linear-gradient(135deg, rgba(10,10,8,.08) 0%, rgba(0,0,0,.06) 100%);
+      border: 1px solid rgba(200,168,75,.2);
+      position: relative;
+      z-index: 1;
+      flex-shrink: 0;
+    }
+    
+    .cursos-badge-content {
+      text-align: center;
+    }
+    
+    .cursos-badge-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3rem;
+      font-weight: 300;
+      color: var(--dourado);
+      line-height: 1;
+    }
+    
+    .cursos-badge-label {
+      font-size: .58rem;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: var(--verde);
+      margin-top: .4rem;
     }
 
     /* ══ AGENDA ══ */
@@ -429,6 +577,7 @@
     /* ══ FOOTER ══ */
     footer {
       background:var(--verde); padding:3.5rem 2rem; text-align:center;
+      border-top: 1px solid rgba(200,168,75,.2);
     }
     .footer-logo {
       font-family:'Cormorant Garamond', serif;
@@ -440,6 +589,9 @@
     }
     .footer-line { width:40px; height:1px; background:rgba(200,168,75,.3); margin:0 auto 1.5rem; }
     .footer-copy { font-size:.72rem; color:rgba(246,242,234,.35); font-weight:300; }
+    .footer-admin { font-size:.68rem; color:rgba(246,242,234,.25); margin-top:1rem; }
+    .footer-admin a { color:var(--dourado-cl); text-decoration:none; transition:color .2s; }
+    .footer-admin a:hover { color:var(--dourado); }
 
     /* ══ LIGHTBOX ══ */
     .lightbox {
@@ -502,6 +654,10 @@
       .gal-item { aspect-ratio:1/1; }
 
       .contato-grid { grid-template-columns:1fr; }
+      
+      .cursos-card-header { flex-direction: column; }
+      .cursos-badge { width: 100px; height: 100px; }
+      .cursos-badge-num { font-size: 2.4rem; }
     }
 
     /* ══ MOBILE ══ */
@@ -530,10 +686,9 @@
       .evento-nome { font-size:1.05rem; }
       .evento-sep { height:34px; }
 
-      .galeria-grid { gap:5px; }
+      .galeria-grid { gap:5px; grid-template-columns: 1fr; }
+      .gal-item { aspect-ratio: 3/4; }
       .mapa-wrap iframe { height:250px; }
-      .agenda-banner-grid { grid-template-columns:1fr !important; }
-      .agenda-banner-sticky { position:static !important; }
 
       .contato-item { padding:1.2rem; }
 
@@ -541,6 +696,12 @@
 
       footer { padding:2.2rem 1.4rem; }
       .footer-logo { font-size:1.15rem; }
+      
+      .cursos-card { padding: 2rem; }
+      .cursos-card-info h3 { font-size: 1.6rem; }
+      .cursos-meta { flex-direction: column; gap: 0.8rem; }
+      .cursos-meta::before { display: none; }
+      .cursos-badge { width: 100%; margin-top: 1.5rem; }
     }
   </style>
 
@@ -548,7 +709,6 @@
 <body>
 
   <!-- NAV -->
-
   <nav id="navbar">
     <a href="#" class="nav-logo">
       <img src="https://matavirgem.org/logo.png" alt="Logo"/>
@@ -558,37 +718,35 @@
       </div>
     </a>
 
-```
-<ul class="nav-links">
-  <li><a href="#proximaGira">Próxima Gira</a></li>
-  <li><a href="#agenda">Agenda</a></li>
-  <li><a href="#fotos">Galeria</a></li>
-  <li><a href="#local">Localização</a></li>
-  <li><a href="#contato">Contato</a></li>
-</ul>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#proximaGira">Próxima Gira</a></li>
+      <li><a href="#agenda">Agenda</a></li>
+      <li><a href="#cursos">Cursos</a></li>
+      <li><a href="#fotos">Galeria</a></li>
+      <li><a href="#local">Localização</a></li>
+      <li><a href="#contato">Contato</a></li>
+    </ul>
 
-<a class="nav-canal" href="https://whatsapp.com/channel/0029VbBrPIcDp2Q3Wj8J9q22" target="_blank">
-  📣 Canal
-</a>
+    <a class="nav-canal" href="https://whatsapp.com/channel/0029VbBrPIcDp2Q3Wj8J9q22" target="_blank">
+      📣 Canal
+    </a>
 
-<button class="hamburger" id="hamburger" aria-label="Menu">
-  <span></span><span></span><span></span>
-</button>
-```
-
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
 
   <div class="mobile-nav" id="mobileNav">
     <a href="#proximaGira" onclick="fecharMenu()">Próxima Gira</a>
-    <a href="#agenda"      onclick="fecharMenu()">Agenda</a>
-    <a href="#fotos"       onclick="fecharMenu()">Galeria</a>
-    <a href="#local"       onclick="fecharMenu()">Localização</a>
-    <a href="#contato"     onclick="fecharMenu()">Contato</a>
+    <a href="#agenda" onclick="fecharMenu()">Agenda</a>
+    <a href="#cursos" onclick="fecharMenu()">Cursos</a>
+    <a href="#fotos" onclick="fecharMenu()">Galeria</a>
+    <a href="#local" onclick="fecharMenu()">Localização</a>
+    <a href="#contato" onclick="fecharMenu()">Contato</a>
     <a href="https://whatsapp.com/channel/0029VbBrPIcDp2Q3Wj8J9q22" target="_blank">📣 Entrar no Canal</a>
   </div>
 
   <!-- HERO -->
-
   <section id="hero">
     <div class="hero-esq">
       <p class="hero-tag">Umbanda · Jurema Sagrada · Ensino</p>
@@ -602,175 +760,70 @@
         <a class="btn-sol" href="#agenda">Ver Agenda</a>
         <a class="btn-cont" href="#contato">Falar Conosco</a>
       </div>
-    <div class="proxima-hero">
-  <p class="proxima-hero-label">Próxima gira</p>
-  <p class="proxima-hero-nome">17/04 — Gira de Baianos e Boiadeiros</p>
-  <p class="proxima-hero-data">Sexta-feira · 20h30</p>
-</div>
-
-```
-<div class="hero-dir">
-  <img src="https://matavirgem.org/capa.jpg" alt="Gira"/>
-  <div class="hero-redes">
-    <a href="https://instagram.com/te.aruanda" target="_blank" title="Instagram">
-      <svg fill="#E4405F" viewBox="0 0 24 24"><path d="M7.5 2h9A5.5 5.5 0 0122 7.5v9A5.5 5.5 0 0116.5 22h-9A5.5 5.5 0 012 16.5v-9A5.5 5.5 0 017.5 2zm0 1.5A4 4 0 003.5 7.5v9A4 4 0 007.5 20.5h9a4 4 0 004-4v-9a4 4 0 00-4-4h-9zm4.5 3.25a5.25 5.25 0 110 10.5 5.25 5.25 0 010-10.5zm0 1.5a3.75 3.75 0 100 7.5 3.75 3.75 0 000-7.5zm5.5-.88a.87.87 0 11-1.74 0 .87.87 0 011.74 0z"/></svg>
-    </a>
-    <a href="https://wa.me/5511969444666" target="_blank" title="WhatsApp">
-      <svg fill="#25D366" viewBox="0 0 24 24"><path d="M17.47 14.38c-.27-.14-1.6-.79-1.85-.88-.25-.09-.43-.14-.61.14-.18.27-.7.88-.86 1.06-.16.18-.31.2-.58.07-.27-.14-1.14-.42-2.17-1.34-.8-.71-1.34-1.59-1.5-1.86-.16-.27-.02-.42.12-.55.12-.12.27-.31.41-.47.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.48-.07-.14-.61-1.47-.84-2.01-.22-.53-.44-.46-.61-.47l-.52-.01c-.18 0-.48.07-.73.34-.25.27-.97.95-.97 2.31 0 1.36.99 2.68 1.13 2.86.14.18 1.95 2.98 4.73 4.18.66.29 1.18.46 1.58.59.66.21 1.26.18 1.74.11.53-.08 1.6-.65 1.83-1.28.22-.63.22-1.17.16-1.28-.07-.11-.25-.18-.52-.31z"/><path d="M12 2a10 10 0 00-8.45 15.34L2 22l4.8-1.52A10 10 0 1012 2zm0 18.33a8.33 8.33 0 01-4.24-1.16l-.3-.18-3.12.99.99-3.04-.2-.31A8.33 8.33 0 1112 20.33z"/></svg>
-    </a>
-  </div>
-  <div class="hero-badge">
-    <span class="hero-badge-star">✦</span>
-    <span class="hero-badge-txt">Mata<br>Virgem</span>
-  </div>
-</div>
-```
-
+      <div class="proxima-hero" id="proximaHeroCard">
+        <!-- Preenchido por JavaScript -->
+      </div>
+    </div>
+    <div class="hero-dir">
+      <img src="https://matavirgem.org/capa.jpg" alt="Gira"/>
+      <div class="hero-redes">
+        <a href="https://instagram.com/te.aruanda" target="_blank" title="Instagram">
+          <svg fill="#E4405F" viewBox="0 0 24 24"><path d="M7.5 2h9A5.5 5.5 0 0122 7.5v9A5.5 5.5 0 0116.5 22h-9A5.5 5.5 0 012 16.5v-9A5.5 5.5 0 017.5 2zm0 1.5A4 4 0 003.5 7.5v9A4 4 0 007.5 20.5h9a4 4 0 004-4v-9a4 4 0 00-4-4h-9zm4.5 3.25a5.25 5.25 0 110 10.5 5.25 5.25 0 010-10.5zm0 1.5a3.75 3.75 0 100 7.5 3.75 3.75 0 000-7.5zm5.5-.88a.87.87 0 11-1.74 0 .87.87 0 011.74 0z"/></svg>
+        </a>
+        <a href="https://wa.me/5511969444666" target="_blank" title="WhatsApp">
+          <svg fill="#25D366" viewBox="0 0 24 24"><path d="M17.47 14.38c-.27-.14-1.6-.79-1.85-.88-.25-.09-.43-.14-.61.14-.18.27-.7.88-.86 1.06-.16.18-.31.2-.58.07-.27-.14-1.14-.42-2.17-1.34-.8-.71-1.34-1.59-1.5-1.86-.16-.27-.02-.42.12-.55.12-.12.27-.31.41-.47.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.48-.07-.14-.61-1.47-.84-2.01-.22-.53-.44-.46-.61-.47l-.52-.01c-.18 0-.48.07-.73.34-.25.27-.97.95-.97 2.31 0 1.36.99 2.68 1.13 2.86.14.18 1.95 2.98 4.73 4.18.66.29 1.18.46 1.58.59.66.21 1.26.18 1.74.11.53-.08 1.6-.65 1.83-1.28.22-.63.22-1.17.16-1.28-.07-.11-.25-.18-.52-.31z"/><path d="M12 2a10 10 0 00-8.45 15.34L2 22l4.8-1.52A10 10 0 1012 2zm0 18.33a8.33 8.33 0 01-4.24-1.16l-.3-.18-3.12.99.99-3.04-.2-.31A8.33 8.33 0 1112 20.33z"/></svg>
+        </a>
+      </div>
+      <div class="hero-badge">
+        <span class="hero-badge-star">✦</span>
+        <span class="hero-badge-txt">Mata<br>Virgem</span>
+      </div>
+    </div>
   </section>
 
   <!-- PRÓXIMA GIRA -->
-
-  <!-- PRÓXIMA GIRA -->
-
- <section id="proximaGira">
-  <div class="container">
-    <div class="prox-grid">
-      
-      <div class="prox-img">
-        <img src="https://matavirgem.org/proxima.jpg" alt="Gira de Baianos e Boiadeiros"/>
+  <section id="proximaGira">
+    <div class="container">
+      <div class="prox-grid" id="proximaGiraGrid">
+        <!-- Preenchido por JavaScript -->
       </div>
-
-      <div class="prox-info">
-        <p class="sec-label">Próxima gira</p>
-
-        <h2 class="sec-title">
-          17 de Abril — <em>Baianos e Boiadeiros</em>
-        </h2>
-
-        <p>
-          Nesta gira, trabalharemos com a força dos 
-          <strong>Baianos e Boiadeiros</strong>, trazendo limpeza espiritual, 
-          firmeza e direcionamento de caminhos.
-        </p>
-
-        <p>
-          📅 <strong>Sexta-feira, 17 de abril</strong><br>
-          🕗 <strong>20h30</strong>
-        </p>
-
-        <a class="btn-sol" href="#contato" style="margin-top:.5rem">
-          Falar com a casa
-        </a>
-      </div>
-
     </div>
-  </div>
-</section>
+  </section>
+
+  <!-- CURSOS CARD (HOME) -->
+  <section id="cursosCard">
+    <div class="container">
+      <div class="cursos-card" id="cursosCardHome">
+        <!-- Preenchido por JavaScript -->
+      </div>
+    </div>
+  </section>
+
   <!-- AGENDA -->
+  <section id="agenda">
+    <div class="container">
+      <p class="sec-label">Calendário</p>
+      <h2 class="sec-title">Agenda de <em id="agendaTitulo">Abril</em></h2>
 
- <section id="agenda">
-  <div class="container">
-    <p class="sec-label">Calendário</p>
-    <h2 class="sec-title">Agenda de <em>Abril</em></h2>
-
-    <div class="agenda-banner-grid" style="display:grid; grid-template-columns:1fr 340px; gap:2.5rem; align-items:start; margin-top:2.8rem;">
-
-      <div class="agenda-lista">
-
-        <!-- 17 -->
-        <div class="evento">
-          <div class="evento-data-box">
-            <div class="evento-dia">17</div>
-            <div class="evento-mes">Abr</div>
-          </div>
-          <div class="evento-sep"></div>
-          <div class="evento-info">
-            <div class="evento-semana">Sexta-feira</div>
-            <div class="evento-nome">Baianos e Boiadeiros</div>
-            <div class="evento-hora">◷ 20h30</div>
-          </div>
+      <div class="agenda-banner-grid" style="display:grid; grid-template-columns:1fr 340px; gap:2.5rem; align-items:start; margin-top:2.8rem;">
+        <div class="agenda-lista" id="agendaLista">
+          <!-- Preenchido por JavaScript -->
         </div>
 
-        <!-- 24 -->
-        <div class="evento">
-          <div class="evento-data-box">
-            <div class="evento-dia">24</div>
-            <div class="evento-mes">Abr</div>
-          </div>
-          <div class="evento-sep"></div>
-          <div class="evento-info">
-            <div class="evento-semana">Sexta-feira</div>
-            <div class="evento-nome">Festa de Ogum — Atendimento com Caboclos</div>
-            <div class="evento-hora">◷ 20h30</div>
-          </div>
+        <div class="agenda-banner-sticky" style="position:sticky; top:80px;">
+          <img id="agendaBannerImg" src="" alt="Agenda" style="width:100%; border-radius:8px; box-shadow:0 20px 50px rgba(27,58,34,.2); display:block;"/>
         </div>
-
-        <!-- 30 -->
-        <div class="evento" style="background:rgba(200,168,75,.06);">
-          <div class="evento-data-box">
-            <div class="evento-dia">30</div>
-            <div class="evento-mes">Abr</div>
-          </div>
-          <div class="evento-sep"></div>
-          <div class="evento-info">
-            <div class="evento-semana">Quinta-feira · Véspera de feriado</div>
-            <div class="evento-nome">Gira de Malandros e Povo da Rua</div>
-            <div class="evento-hora">◷ 20h30</div>
-          </div>
-        </div>
-
       </div>
-
-      <!-- banner -->
-      <div class="agenda-banner-sticky" style="position:sticky; top:80px;">
-        <img
-          src="https://matavirgem.org/agenda.jpg"
-          alt="Agenda Abril"
-          style="width:100%; border-radius:8px; box-shadow:0 20px 50px rgba(27,58,34,.2); display:block;"
-        />
-      </div>
-
     </div>
-  </div>
-</section>
-    <!-- banner agenda abril -->
-    <div class="agenda-banner-sticky" style="position:sticky; top:80px;">
-      <img
-        src="https://matavirgem.org/agenda.jpg"
-        alt="Agenda Abril"
-        style="width:100%; border-radius:8px; box-shadow:0 20px 50px rgba(27,58,34,.2); display:block;"
-      />
-    </div>
-
-  </div>
-</div>
-```
-
   </section>
 
   <!-- GALERIA -->
-
   <section id="fotos">
     <div class="container">
       <p class="sec-label">Momentos</p>
       <h2 class="sec-title">Nossa <em style="color:var(--dourado-cl)">Galeria</em></h2>
-      <div class="galeria-grid">
-        <div class="gal-item" onclick="abrirLb('https://matavirgem.org/altar.jpeg')">
-          <img src="https://matavirgem.org/altar.jpeg" alt="Altar"/>
-          <div class="gal-hover"><span class="gal-hover-icon">⊕</span></div>
-        </div>
-        <div class="gal-item" onclick="abrirLb('https://matavirgem.org/povo.jpeg')">
-          <img src="https://matavirgem.org/povo.jpeg" alt="Povo"/>
-          <div class="gal-hover"><span class="gal-hover-icon">⊕</span></div>
-        </div>
-        <div class="gal-item" onclick="abrirLb('https://matavirgem.org/caldeirao.jpeg')">
-          <img src="https://matavirgem.org/caldeirao.jpeg" alt="Caldeirão"/>
-          <div class="gal-hover"><span class="gal-hover-icon">⊕</span></div>
-        </div>
-        <div class="gal-item" onclick="abrirLb('https://matavirgem.org/esq.jpeg')">
-          <img src="https://matavirgem.org/esq.jpeg" alt="Esquerda"/>
-          <div class="gal-hover"><span class="gal-hover-icon">⊕</span></div>
-        </div>
+      <div class="galeria-grid" id="galeriaGrid">
+        <!-- Preenchido por JavaScript -->
       </div>
       <div class="galeria-footer">
         <a class="btn-instagram" href="https://instagram.com/te.aruanda" target="_blank">
@@ -781,8 +834,19 @@
     </div>
   </section>
 
-  <!-- LOCALIZAÇÃO -->
+  <!-- CURSOS (PÁGINA) -->
+  <section id="cursos">
+    <div class="container">
+      <p class="sec-label">Desenvolvimento</p>
+      <h2 class="sec-title">Cursos e <em>Aprendizado</em></h2>
+      
+      <div id="cursosConteudo" style="margin-top: 2.8rem;">
+        <!-- Preenchido por JavaScript -->
+      </div>
+    </div>
+  </section>
 
+  <!-- LOCALIZAÇÃO -->
   <section id="local">
     <div class="container">
       <p class="sec-label">Onde estamos</p>
@@ -794,7 +858,6 @@
   </section>
 
   <!-- CONTATO -->
-
   <section id="contato">
     <div class="container">
       <p class="sec-label">Fale conosco</p>
@@ -823,37 +886,198 @@
   </section>
 
   <!-- FOOTER -->
-
   <footer>
     <div class="footer-logo">Templo Escola Aruanda de Mata Virgem</div>
     <div class="footer-sub">Ensino · Umbanda · Jurema Sagrada</div>
     <div class="footer-line"></div>
     <div class="footer-copy">© 2025 Aruanda de Mata Virgem · Todos os direitos reservados</div>
+    <div class="footer-admin">
+      <a href="admin.html" target="_blank">🔒 Painel Administrativo</a>
+    </div>
   </footer>
 
   <!-- LIGHTBOX -->
-
   <div class="lightbox" id="lightbox" onclick="fecharLb()">
     <button class="lb-close" onclick="fecharLb()">×</button>
     <img id="lb-img" src="" alt=""/>
   </div>
 
   <!-- BOTÃO FLUTUANTE -->
-
-<a class="btn-flutuante" id="btnCanal"
-href="https://whatsapp.com/channel/0029VbBrPIcDp2Q3Wj8J9q22" target="_blank">
-<svg fill="#25D366" viewBox="0 0 24 24"><path d="M17.47 14.38c-.27-.14-1.6-.79-1.85-.88-.25-.09-.43-.14-.61.14-.18.27-.7.88-.86 1.06-.16.18-.31.2-.58.07-.27-.14-1.14-.42-2.17-1.34-.8-.71-1.34-1.59-1.5-1.86-.16-.27-.02-.42.12-.55.12-.12.27-.31.41-.47.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.48-.07-.14-.61-1.47-.84-2.01-.22-.53-.44-.46-.61-.47l-.52-.01c-.18 0-.48.07-.73.34-.25.27-.97.95-.97 2.31 0 1.36.99 2.68 1.13 2.86.14.18 1.95 2.98 4.73 4.18.66.29 1.18.46 1.58.59.66.21 1.26.18 1.74.11.53-.08 1.6-.65 1.83-1.28.22-.63.22-1.17.16-1.28-.07-.11-.25-.18-.52-.31z"/><path d="M12 2a10 10 0 00-8.45 15.34L2 22l4.8-1.52A10 10 0 1012 2zm0 18.33a8.33 8.33 0 01-4.24-1.16l-.3-.18-3.12.99.99-3.04-.2-.31A8.33 8.33 0 1112 20.33z"/></svg>
-Receber avisos das giras
-</a>
+  <a class="btn-flutuante" id="btnCanal" href="https://whatsapp.com/channel/0029VbBrPIcDp2Q3Wj8J9q22" target="_blank">
+    <svg fill="#25D366" viewBox="0 0 24 24"><path d="M17.47 14.38c-.27-.14-1.6-.79-1.85-.88-.25-.09-.43-.14-.61.14-.18.27-.7.88-.86 1.06-.16.18-.31.2-.58.07-.27-.14-1.14-.42-2.17-1.34-.8-.71-1.34-1.59-1.5-1.86-.16-.27-.02-.42.12-.55.12-.12.27-.31.41-.47.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.48-.07-.14-.61-1.47-.84-2.01-.22-.53-.44-.46-.61-.47l-.52-.01c-.18 0-.48.07-.73.34-.25.27-.97.95-.97 2.31 0 1.36.99 2.68 1.13 2.86.14.18 1.95 2.98 4.73 4.18.66.29 1.18.46 1.58.59.66.21 1.26.18 1.74.11.53-.08 1.6-.65 1.83-1.28.22-.63.22-1.17.16-1.28-.07-.11-.25-.18-.52-.31z"/><path d="M12 2a10 10 0 00-8.45 15.34L2 22l4.8-1.52A10 10 0 1012 2zm0 18.33a8.33 8.33 0 01-4.24-1.16l-.3-.18-3.12.99.99-3.04-.2-.31A8.33 8.33 0 1112 20.33z"/></svg>
+    Receber avisos das giras
+  </a>
 
   <script>
-    // scroll
+    let dados = {};
+
+    // Carregar dados do JSON
+    async function carregarDados() {
+      try {
+        const resposta = await fetch('dados.json');
+        dados = await resposta.json();
+        renderizarSite();
+      } catch (erro) {
+        console.error('Erro ao carregar dados:', erro);
+      }
+    }
+
+    // Renderizar próxima gira no hero
+    function renderizarProximaHero() {
+      const card = document.getElementById('proximaHeroCard');
+      const prox = dados.proximaGira;
+      card.innerHTML = `
+        <p class="proxima-hero-label">Próxima gira</p>
+        <p class="proxima-hero-nome">${prox.data} — ${prox.nome}</p>
+        <p class="proxima-hero-data">${prox.dia} · ${prox.hora}</p>
+      `;
+    }
+
+    // Renderizar seção próxima gira
+    function renderizarProximaGira() {
+      const grid = document.getElementById('proximaGiraGrid');
+      const prox = dados.proximaGira;
+      grid.innerHTML = `
+        <div class="prox-img">
+          <img src="${prox.imagem}" alt="${prox.nome}"/>
+        </div>
+        <div class="prox-info">
+          <p class="sec-label">Próxima gira</p>
+          <h2 class="sec-title">${prox.data} — <em>${prox.nome}</em></h2>
+          <p>${prox.descricao}</p>
+          <p>
+            📅 <strong>${prox.dia}, ${prox.data}</strong><br>
+            🕗 <strong>${prox.hora}</strong>
+          </p>
+          <a class="btn-sol" href="#contato" style="margin-top:.5rem">
+            Falar com a casa
+          </a>
+        </div>
+      `;
+    }
+
+    // Renderizar agenda
+    function renderizarAgenda() {
+      const lista = document.getElementById('agendaLista');
+      const eventos = dados.eventos;
+      
+      lista.innerHTML = eventos.map(evt => `
+        <div class="evento" ${evt.id === 3 ? 'style="background:rgba(200,168,75,.06);"' : ''}>
+          <div class="evento-data-box">
+            <div class="evento-dia">${evt.dia}</div>
+            <div class="evento-mes">${evt.mes}</div>
+          </div>
+          <div class="evento-sep"></div>
+          <div class="evento-info">
+            <div class="evento-semana">${evt.semana}</div>
+            <div class="evento-nome">${evt.nome}</div>
+            <div class="evento-hora">◷ ${evt.hora}</div>
+          </div>
+        </div>
+      `).join('');
+
+      // Banner da agenda
+      document.getElementById('agendaBannerImg').src = dados.agendaBanner.imagem;
+    }
+
+    // Renderizar galeria
+    function renderizarGaleria() {
+      const grid = document.getElementById('galeriaGrid');
+      grid.innerHTML = dados.galeria.map(foto => `
+        <div class="gal-item" onclick="abrirLb('${foto.url}')">
+          <img src="${foto.url}" alt="${foto.titulo}"/>
+          <div class="gal-hover"><span class="gal-hover-icon">⊕</span></div>
+        </div>
+      `).join('');
+    }
+
+    // Renderizar card cursos na home
+    function renderizarCursosCard() {
+      const card = document.getElementById('cursosCardHome');
+      const curso = dados.cursos[0];
+      
+      card.innerHTML = `
+        <div class="cursos-card-header">
+          <div class="cursos-card-info">
+            <h3>${curso.titulo}</h3>
+            <p>${curso.descricao}</p>
+            <div class="cursos-meta">
+              <span>📚 ${curso.aulas.length} Aulas</span>
+              <span>🎓 Módulo ${curso.modulo}</span>
+            </div>
+            <a href="#cursos" class="btn-cursos">Saiba Mais</a>
+          </div>
+          <div class="cursos-badge">
+            <div class="cursos-badge-content">
+              <div class="cursos-badge-num">${curso.aulas.length}</div>
+              <div class="cursos-badge-label">Aulas</div>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    // Renderizar página de cursos
+    function renderizarCursos() {
+      const container = document.getElementById('cursosConteudo');
+      const curso = dados.cursos[0];
+      
+      let html = `
+        <div style="display: grid; grid-template-columns: 1fr; gap: 2rem; margin-bottom: 4rem;">
+          <div style="background: var(--branco); border: 1px solid rgba(200,168,75,.2); border-radius: 2px; padding: 2rem; position: relative;">
+            <div style="position: absolute; top: 0; left: 0; width: 100%; height: 2px; background: linear-gradient(to right, var(--dourado), transparent);"></div>
+            <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; color: var(--verde); margin-bottom: 1rem;">${curso.titulo}</h3>
+            <p style="font-size: .88rem; line-height: 1.8; color: var(--texto-cl); margin-bottom: 1.5rem;">${curso.descricao}</p>
+            <div style="font-size: .74rem; color: var(--dourado); letter-spacing: .12em; text-transform: uppercase;">Módulo ${curso.modulo} • ${curso.aulas.length} Aulas</div>
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem;">
+      `;
+
+      curso.aulas.forEach(aula => {
+        html += `
+          <div style="background: var(--branco); border: 1px solid rgba(200,168,75,.15); border-radius: 2px; padding: 1.5rem; transition: all .3s; cursor: pointer; position: relative; overflow: hidden;" onmouseover="this.style.boxShadow='0 8px 24px rgba(27,58,34,.1)'" onmouseout="this.style.boxShadow='none'" onclick="abrirAula('${aula.youtube}')">
+            <div style="position: absolute; top: 0; left: 0; width: 3px; height: 0; background: var(--dourado); transition: height .3s;" id="aula-${aula.id}-bar"></div>
+            <div style="background: rgba(200,168,75,.08); border-radius: 2px; padding: 1rem; margin-bottom: 1rem; text-align: center;">
+              <div style="font-family: 'Cormorant Garamond', serif; font-size: 2rem; color: var(--dourado); line-height: 1; margin-bottom: .3rem;">Aula ${aula.numero}</div>
+              <div style="font-size: .6rem; letter-spacing: .12em; text-transform: uppercase; color: var(--verde);">8 Módulos Disponíveis</div>
+            </div>
+            <h4 style="font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; color: var(--verde); margin-bottom: .6rem;">${aula.titulo}</h4>
+            <p style="font-size: .78rem; color: var(--texto-cl); line-height: 1.6; margin-bottom: 1rem;">Aprenda os conceitos fundamentais dessa aula do curso Identidade Mediunica.</p>
+            <div style="display: flex; align-items: center; gap: .4rem; font-size: .7rem; color: var(--dourado); letter-spacing: .1em; text-transform: uppercase;">
+              ▶ Assistir Aula
+            </div>
+          </div>
+        `;
+      });
+
+      html += `</div>`;
+      container.innerHTML = html;
+    }
+
+    // Abrir aula (placeholder)
+    function abrirAula(youtubeId) {
+      alert(`Aula será aberta em breve!\n\nYouTube ID: ${youtubeId}\n\nDepois de integrar com Hotmart, você poderá assistir aqui.`);
+    }
+
+    // Renderizar tudo
+    function renderizarSite() {
+      renderizarProximaHero();
+      renderizarProximaGira();
+      renderizarAgenda();
+      renderizarGaleria();
+      renderizarCursosCard();
+      renderizarCursos();
+    }
+
+    // Scroll navbar
     window.addEventListener('scroll', () => {
       document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 40);
       document.getElementById('btnCanal').classList.toggle('show', window.scrollY > 300);
     });
 
-    // hamburger
+    // Hamburger
     const ham = document.getElementById('hamburger');
     const mNav = document.getElementById('mobileNav');
     ham.addEventListener('click', () => {
@@ -865,7 +1089,7 @@ Receber avisos das giras
       mNav.classList.remove('open');
     }
 
-    // lightbox
+    // Lightbox
     function abrirLb(src){
       document.getElementById('lb-img').src = src;
       document.getElementById('lightbox').classList.add('open');
@@ -876,6 +1100,9 @@ Receber avisos das giras
       document.body.style.overflow = '';
     }
     document.addEventListener('keydown', e => { if(e.key==='Escape') fecharLb(); });
+
+    // Inicializar
+    carregarDados();
   </script>
 
 </body>
