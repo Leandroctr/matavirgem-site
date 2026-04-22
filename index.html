@@ -296,10 +296,14 @@
       top:-12px; left:-12px; right:12px; bottom:12px;
       border:1px solid rgba(200,168,75,.3); border-radius:2px; pointer-events:none;
     }
-    .prox-img img {
-      width:100%; display:block; border-radius:2px;
-      box-shadow:0 20px 50px rgba(27,58,34,.15);
-    }
+  .prox-img img {
+  width: 100%;
+  max-height: 320px;
+  object-fit: cover;
+  display: block;
+  border-radius: 2px;
+  box-shadow: 0 20px 50px rgba(27,58,34,.15);
+}
     .prox-info p {
       font-size:.88rem; line-height:1.95; font-weight:300;
       color:var(--texto-cl); margin-bottom:1.2rem;
@@ -552,7 +556,10 @@
       footer { padding:2.2rem 1.4rem; }
       .footer-logo { font-size:1.15rem; }
     }
-    @media (max-width: 768px) {
+    @media (max-width: 768px)
+    .prox-img img {
+  max-height: 200px;
+}{
 
   .prox-grid {
     grid-template-columns: 1fr !important;
