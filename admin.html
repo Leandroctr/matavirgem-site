@@ -801,5 +801,20 @@
     console.log('✅ Admin pronto!');
   </script>
 
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore-compat.js"></script>
+
+<script>
+const config = {
+  apiKey: "AIzaSyCDt7n4hoxQlF0BRLWB_bBouO4A35YsZVY",
+  authDomain: "mata-virgem.firebaseapp.com",
+  projectId: "mata-virgem",
+  storageBucket: "mata-virgem.firebasestorage.app",
+};
+
+firebase.initializeApp(config);
+const db = firebase.firestore();
+</script>
+  
 </body>
 </html>
