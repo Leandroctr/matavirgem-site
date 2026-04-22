@@ -296,17 +296,30 @@
       top:-12px; left:-12px; right:12px; bottom:12px;
       border:1px solid rgba(200,168,75,.3); border-radius:2px; pointer-events:none;
     }
-.prox-img img {
-  width: auto;
-  height: 420px;
-  max-width: 100%;
-  object-fit: contain;
-  display: block;
-  border-radius: 6px;
-}
+    .prox-img img {
+      width: auto;
+      height: auto;
+      max-width: 100%;
+      max-height: 420px;
+      object-fit: contain;
+      display: block;
+      border-radius: 6px;
+    }
     .prox-info p {
       font-size:.88rem; line-height:1.95; font-weight:300;
       color:var(--texto-cl); margin-bottom:1.2rem;
+    }
+    .prox-info h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.8rem, 2.5vw, 2.6rem);
+      font-weight: 300;
+      color: var(--verde);
+      line-height: 1.15;
+      margin-bottom: 0.8rem;
+    }
+    .prox-info h2 em {
+      font-style: italic;
+      color: var(--marrom);
     }
 
     /* ══ AGENDA ══ */
@@ -372,16 +385,13 @@
       position:relative; overflow:hidden;
       border-radius:2px; aspect-ratio:3/4; cursor:pointer;
     }
-   .gal-item img {
-  width: 100%;
-  height: 140px;
-  object-fit: cover;
-  display: block;
-  transition: transform .5s, filter .4s;
-  filter: brightness(.82) saturate(.88);
-}
-      transition:transform .5s, filter .4s;
-      filter:brightness(.82) saturate(.88);
+    .gal-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform .5s, filter .4s;
+      filter: brightness(.82) saturate(.88);
     }
     .gal-item:hover img { transform:scale(1.07); filter:brightness(.95) saturate(1.1); }
     .gal-hover {
@@ -562,37 +572,6 @@
       footer { padding:2.2rem 1.4rem; }
       .footer-logo { font-size:1.15rem; }
     }
-   .prox-img img {
-  max-height: 300px;
-}
-  height: 110px;
-}
-    .prox-img img {
-  max-height: 200px;
-}{
-
-  .prox-grid {
-    grid-template-columns: 1fr !important;
-    gap: 2rem;
-  }
-
-  .hero-esq {
-    padding: 2rem 1.2rem !important;
-  }
-
-  .galeria-grid {
-    grid-template-columns: repeat(2, 1fr) !important;
-  }
-
-  .evento {
-    flex-direction: column;
-    gap: .5rem;
-  }
-
-  .evento-sep {
-    display: none;
-  }
-}
   </style>
 
 </head>
@@ -852,7 +831,7 @@
         </div>
         <div class="prox-info">
           <p class="sec-label">Próxima gira</p>
-          <h2 class="sec-title">${prox.data} — <em>${prox.nome}</em></h2>
+          <h2>${prox.data} — <em>${prox.nome}</em></h2>
           <p>${prox.descricao}</p>
           <p>
             📅 <strong>${prox.dia}, ${prox.data}</strong><br>
