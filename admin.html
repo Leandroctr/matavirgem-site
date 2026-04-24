@@ -385,35 +385,84 @@
     </div>
 
     <!-- PROXIMA GIRA -->
-            <div id="proximaGira" class="tab-content">
-                        <div class="form">
-                                        <h3>📍 Próxima Gira</h3>
-                                                                    <div class="form-group">
-                                                                                                      <label>Banner Próxima Gira</label>
-                                                                                                                                      <input type="file" id="proximaGiraFile" accept="image/*">
-                                                                                                                                                                      <label for="proximaGiraFile" class="btn btn-block" onclick="document.getElementById('proximaGiraFile').click()">📸 Carregar Banner</label>
-                                                                                                                                                                                                  </div>
-                                                                                                                                                                                                                              <div id="proximaGiraPreview"></div>
-                                                        <div class="form-group">
-                                                                            <label>Banner da Próxima Gira</label>
-                                                                                                <input type="file" id="proximaGiraFile" class="file-input" accept="image/*">
-                                                                                                                    <label for="proximaGiraFile" class="file-label">📷 Selecionar Imagem</label>
-                                                                                                                                        <div class="upload-progress" id="uploadProgressProxima"></div>
-                                                                                                                                                        </div>
-                                                                                                                                                                        <button class="btn btn-block" onclick="uploadProximaGira()">📤 Enviar Banner</button>
-                                                                                                                                                                                    </div>
-                                                                                                                                                                                                <div id="proximaGiraPreview"></div>
-                                                                                                                                                                                                        </div>-->
+    <div id="proximaGira" class="tab-content">
+      <div class="form">
+        <h3>📅 Próxima Gira</h3>
 
-                                                                                                                                                                                                                <div id="controlesGerais" class="form-group" style="background: #f5f5f5; padding: 1.5rem; border-radius: 8px; margin-bottom: 2rem;">
-                                                                                                                                                                                                                            <h3>⚙️ Configurações Gerais</h3>
-                                                                                                                                                                                                                                        <div class="form-group">
-                                                                                                                                                                                                                                                        <label style="display: flex; align-items: center; gap: 0.5rem;">
-                                                                                                                                                                                                                                                                            <input type="checkbox" id="cursosAtivo" onchange="alternarCursos()"> 🎓 Seção de Cursos Ativa
-                                                                                                                                                                                                                                                                                            </label>
-                                                                                                                                                                                                                                                                                                        </div>
-                                                                                                                                                                                                                                                                                                                </div>
-    <!-- CURSOS -->
+        <!-- Upload do Banner -->
+        <div class="form-group" style="background:#f9f5f0;padding:1.5rem;border-radius:12px;margin-bottom:1.5rem;">
+          <h4 style="margin-bottom:1rem;color:#5a3e2b;">🖼️ Banner da Próxima Gira</h4>
+
+          <!-- Input oculto - aceita imagem direto da galeria/câmera -->
+          <input
+            type="file"
+            id="proximaGiraFile"
+            accept="image/*"
+            capture="environment"
+            style="display:none;"
+            onchange="previewProximaGira(this)"
+          >
+
+          <!-- Área de preview + botão de selecionar -->
+          <div id="proximaGiraDropArea" style="
+            border: 2px dashed #b5865a;
+            border-radius: 12px;
+            padding: 2rem 1rem;
+            text-align: center;
+            cursor: pointer;
+            background: #fff;
+            margin-bottom: 1rem;
+            position: relative;
+            min-height: 200px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+          " onclick="document.getElementById('proximaGiraFile').click()">
+            <div id="proximaGiraPlaceholder">
+              <div style="font-size:3rem;margin-bottom:0.5rem;">📸</div>
+              <p style="font-size:1.1rem;font-weight:600;color:#5a3e2b;margin:0 0 0.3rem;">Toque para selecionar imagem</p>
+              <p style="font-size:0.85rem;color:#888;margin:0;">Escolha da galeria ou tire uma foto</p>
+            </div>
+            <div id="proximaGiraPreview" style="display:none;width:100%;"></div>
+          </div>
+
+          <!-- Nome do arquivo selecionado -->
+          <div id="proximaGiraFileName" style="
+            font-size:0.85rem;
+            color:#666;
+            text-align:center;
+            margin-bottom:1rem;
+            display:none;
+          "></div>
+
+          <!-- Barra de progresso -->
+          <div class="upload-progress" id="uploadProgressProxima" style="margin-bottom:1rem;"></div>
+
+          <!-- Botão de enviar -->
+          <button
+            id="btnEnviarProxima"
+            class="btn btn-block"
+            onclick="uploadProximaGira()"
+            style="display:none;background:#5a3e2b;color:#fff;font-size:1.1rem;padding:1rem;border-radius:10px;"
+          >
+            📤 Enviar Banner
+          </button>
+
+          <!-- Botão para trocar imagem (visível após selecionar) -->
+          <button
+            id="btnTrocarProxima"
+            class="btn btn-block"
+            onclick="document.getElementById('proximaGiraFile').click()"
+            style="display:none;background:#e0c9a6;color:#5a3e2b;margin-top:0.5rem;padding:0.8rem;border-radius:10px;"
+          >
+            🔄 Trocar Imagem
+          </button>
+        </div>
+
+      </div>
+    </div>
+<!-- CURSOS -->
     <div id="cursos" class="tab-content">
       <h2 style="font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; color: var(--verde); margin-bottom: 1rem;">Cursos</h2>
 
@@ -845,6 +894,30 @@
 
     console.log('✅ Admin pronto!');
   
+    // Preview Próxima Gira - Exibe thumbnail antes do upload
+    function previewProximaGira(input) {
+        const file = input.files[0];
+        if (!file) return;
+
+        const preview = document.getElementById('proximaGiraPreview');
+        const placeholder = document.getElementById('proximaGiraPlaceholder');
+        const fileNameEl = document.getElementById('proximaGiraFileName');
+        const btnEnviar = document.getElementById('btnEnviarProxima');
+        const btnTrocar = document.getElementById('btnTrocarProxima');
+
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            preview.innerHTML = '<img src="' + e.target.result + '" style="width:100%;border-radius:8px;max-height:300px;object-fit:contain;" alt="Preview">';
+            preview.style.display = 'block';
+            placeholder.style.display = 'none';
+            fileNameEl.textContent = '📄 ' + file.name + ' (' + (file.size / 1024).toFixed(1) + ' KB)';
+            fileNameEl.style.display = 'block';
+            btnEnviar.style.display = 'block';
+            btnTrocar.style.display = 'block';
+        };
+        reader.readAsDataURL(file);
+    }
+
     // Upload Próxima Gira - Simples e descomplicado
     async function uploadProximaGira() {
         const fileInput = document.getElementById('proximaGiraFile');
