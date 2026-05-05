@@ -842,7 +842,7 @@
   <section id="agenda">
     <div class="container">
       <p class="sec-label">Calendário</p>
-      <h2 class="sec-title">Agenda de <em id="agendaTitulo">Abril</em></h2>
+      <h2 class="sec-title">Agenda de <em id="agendaTitulo">Maio</em></h2>
 
       <!-- Banner Agenda -->
       <div class="agenda-banner" id="agendaBanner">
@@ -919,6 +919,9 @@
     <div class="footer-copy">© 2025 Aruanda de Mata Virgem · Todos os direitos reservados</div>
     <div class="footer-admin">
       <a href="admin.html" target="_blank">🔒 Painel Administrativo</a>
+    </div>
+    <div style="font-size:.65rem; color:rgba(246,242,234,.2); margin-top:1rem; font-weight:300;">
+      Publicado: <span id="pubDate"></span> • v2.1.0
     </div>
   </footer>
 
@@ -1051,10 +1054,14 @@
   function renderizarAgenda() {
     // Carregar banner
     const banner = document.getElementById('agendaBannerImg');
+    console.log('📋 Renderizando agenda. Banner disponível:', dados.agendaBanner);
+    
     if (dados.agendaBanner && dados.agendaBanner.url) {
+      console.log('✅ Exibindo banner:', dados.agendaBanner.url);
       banner.src = dados.agendaBanner.url;
       banner.style.display = 'block';
     } else {
+      console.log('⚠️ Banner não encontrado');
       banner.style.display = 'none';
     }
 
@@ -1077,8 +1084,7 @@
   }
 
   function renderizarAgendaBanner() {
-    // Esta função é chamada automaticamente quando o banner é carregado
-    // A lógica está em renderizarAgenda()
+    renderizarAgenda();
   }
 
   function renderizarGaleria() {
@@ -1159,6 +1165,17 @@
     if(e.key==='ArrowRight') proximaFoto();
     if(e.key==='ArrowLeft') anteriorFoto();
   });
+
+  // Mostrar data/hora de publicação
+  const agora = new Date();
+  const dataStr = agora.toLocaleString('pt-BR', { 
+    day: '2-digit', 
+    month: '2-digit', 
+    year: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit'
+  });
+  document.getElementById('pubDate').textContent = dataStr;
 
   // Iniciar
   carregarDados();
