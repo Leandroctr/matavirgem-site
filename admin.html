@@ -253,6 +253,11 @@
           Já tem conta? <button class="toggle-btn" onclick="toggleForm()">Fazer login</button>
         </div>
       </div>
+
+      <div style="margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid rgba(200,168,75,.15); text-align: center;">
+        <div style="font-size: .65rem; color: var(--texto-cl); letter-spacing: .1em; text-transform: uppercase; margin-bottom: .3rem;">Última atualização</div>
+        <div style="font-size: .7rem; color: var(--dourado); font-weight: 500;" id="updateDateTime">carregando...</div>
+      </div>
     </div>
   </div>
 
@@ -670,6 +675,7 @@
         const ref = firebase.storage().ref(`agendaBanner/${nomeArquivo}`);
         const snapshot = await ref.put(arquivo);
         const url = await snapshot.ref.getDownloadURL();
+        console.log('📸 URL do banner:', url);
 
         await db.collection('agendaBanner').doc('banner1').set({ 
           url,
@@ -677,11 +683,12 @@
           uploadedAt: new Date().toISOString(),
           publishedAt: new Date().toLocaleString('pt-BR')
         });
+        console.log('✅ Banner salvo no Firestore');
 
         document.getElementById('agendaArquivo').value = '';
         alerta('✅ Banner enviado!', 'success');
       } catch (e) {
-        console.error(e);
+        console.error('❌ Erro ao enviar banner:', e);
         alerta('❌ Erro ao enviar', 'error');
       }
     }
@@ -838,6 +845,21 @@
       cont.insertBefore(al, cont.firstChild);
       setTimeout(() => al.remove(), 3000);
     }
+
+    // ══ DATA/HORA DE ATUALIZAÇÃO ══
+    function mostrarDataAtualizacao() {
+      const agora = new Date();
+      const dataStr = agora.toLocaleString('pt-BR', { 
+        day: '2-digit', 
+        month: '2-digit', 
+        year: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit'
+      });
+      document.getElementById('updateDateTime').textContent = dataStr;
+    }
+    mostrarDataAtualizacao();
 
     console.log('🎉 Admin pronto! v2.1.0');
   </script>
