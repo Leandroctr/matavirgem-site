@@ -365,6 +365,7 @@
       <h2 style="font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; color: var(--verde); margin-bottom: 1rem;">Próxima Gira</h2>
 
       <div class="form">
+        <h3>📝 Informações</h3>
         <div class="form-group">
           <label>Data (ex: 17/04)</label>
           <input type="text" id="proxData" placeholder="17/04"/>
@@ -385,11 +386,25 @@
           <label>Descrição</label>
           <textarea id="proxDesc" placeholder="Descreva a gira..."></textarea>
         </div>
+        
+        <h3 style="margin-top: 1.5rem;">📸 Imagem</h3>
         <div class="form-group">
-          <label>Imagem (URL)</label>
-          <input type="text" id="proxImg" placeholder="https://..."/>
+          <label>Arquivo (JPG/PNG)</label>
+          <input type="file" id="proxArquivo" accept="image/*"/>
         </div>
+        <div style="background: rgba(200,168,75,.1); border: 1px solid rgba(200,168,75,.3); border-radius: 4px; padding: .8rem; margin-bottom: 1rem; font-size: .75rem; line-height: 1.5; color: var(--texto);">
+          ℹ️ Tamanho recomendado: 600x400px • Máximo: 2MB
+        </div>
+        
         <button class="btn btn-block" onclick="salvarProxima()">💾 Salvar Próxima Gira</button>
+      </div>
+
+      <div style="margin-top: 2rem;">
+        <h3 style="color: var(--verde); margin-bottom: 1rem; font-size: 0.95rem; font-family: 'Cormorant Garamond', serif;">Preview Atual</h3>
+        <div id="proximaPreview" class="banner-preview">
+          <img id="proximaImg" src="" alt="Próxima Gira" style="display: none;"/>
+          <p id="proximaEmpty" style="padding: 2rem; text-align: center; color: var(--texto-cl);">Nenhuma imagem</p>
+        </div>
       </div>
     </div>
 
@@ -398,14 +413,17 @@
       <h2 style="font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; color: var(--verde); margin-bottom: 1rem;">Galeria</h2>
 
       <div class="form">
-        <h3>+ Nova Foto</h3>
+        <h3>📸 Nova Foto</h3>
         <div class="form-group">
           <label>Título</label>
-          <input type="text" id="newFotoTitulo" placeholder="Ex: Altar"/>
+          <input type="text" id="newFotoTitulo" placeholder="Ex: Altar, Povo, Caldeirão"/>
         </div>
         <div class="form-group">
-          <label>URL da Imagem</label>
-          <input type="text" id="newFotoUrl" placeholder="https://..."/>
+          <label>Arquivo (JPG/PNG)</label>
+          <input type="file" id="newFotoArquivo" accept="image/*"/>
+        </div>
+        <div style="background: rgba(200,168,75,.1); border: 1px solid rgba(200,168,75,.3); border-radius: 4px; padding: .8rem; margin-bottom: 1rem; font-size: .75rem; line-height: 1.5; color: var(--texto);">
+          ℹ️ Tamanho recomendado: 800x800px (quadrado) • Máximo: 2MB
         </div>
         <button class="btn btn-block" onclick="adicionarFoto()">+ Adicionar Foto</button>
       </div>
@@ -731,23 +749,68 @@
         document.getElementById('proxHora').value = p.hora || '';
         document.getElementById('proxNome').value = p.nome || '';
         document.getElementById('proxDesc').value = p.descricao || '';
-        document.getElementById('proxImg').value = p.imagem || '';
+        
+        // Mostrar preview da imagem
+        const img = document.getElementById('proximaImg');
+        const empty = document.getElementById('proximaEmpty');
+        if (p.imagem) {
+          img.src = p.imagem;
+          img.style.display = 'block';
+          empty.style.display = 'none';
+        } else {
+          img.style.display = 'none';
+          empty.style.display = 'block';
+        }
       }
     }
 
     async function salvarProxima() {
+      const arquivo = document.getElementById('proxArquivo').files[0];
+      const data = document.getElementById('proxData').value;
+      const dia = document.getElementById('proxDia').value;
+      const hora = document.getElementById('proxHora').value;
+      const nome = document.getElementById('proxNome').value;
+      const descricao = document.getElementById('proxDesc').value;
+
+      if (!data || !dia || !hora || !nome || !descricao) {
+        alerta('❌ Preencha todos os campos de texto!', 'error');
+        return;
+      }
+
       try {
+        let imagemUrl = '';
+        
+        // Se tiver arquivo, fazer upload
+        if (arquivo) {
+          if (arquivo.size > 2 * 1024 * 1024) {
+            alerta('❌ Imagem muito grande (máx 2MB)', 'error');
+            return;
+          }
+          
+          const nomeArquivo = `prox_${Date.now()}`;
+          const ref = firebase.storage().ref(`proximaGira/${nomeArquivo}`);
+          const snapshot = await ref.put(arquivo);
+          imagemUrl = await snapshot.ref.getDownloadURL();
+          console.log('📸 URL Próxima Gira:', imagemUrl);
+        } else {
+          // Se não tiver arquivo, usar URL anterior se existir
+          imagemUrl = dados.proximaGira?.imagem || '';
+        }
+
         await db.collection('proximaGira').doc('gira1').set({
-          data: document.getElementById('proxData').value,
-          dia: document.getElementById('proxDia').value,
-          hora: document.getElementById('proxHora').value,
-          nome: document.getElementById('proxNome').value,
-          descricao: document.getElementById('proxDesc').value,
-          imagem: document.getElementById('proxImg').value
+          data,
+          dia,
+          hora,
+          nome,
+          descricao,
+          imagem: imagemUrl
         });
-        alerta('✅ Salvo!', 'success');
+        
+        document.getElementById('proxArquivo').value = '';
+        alerta('✅ Próxima Gira salva!', 'success');
       } catch (e) {
-        alerta('❌ Erro', 'error');
+        console.error('❌ Erro ao salvar próxima gira:', e);
+        alerta('❌ Erro ao salvar', 'error');
       }
     }
 
@@ -769,20 +832,32 @@
 
     async function adicionarFoto() {
       const titulo = document.getElementById('newFotoTitulo').value.trim();
-      const url = document.getElementById('newFotoUrl').value.trim();
+      const arquivo = document.getElementById('newFotoArquivo').files[0];
 
-      if (!titulo || !url) {
-        alerta('❌ Preencha todos!', 'error');
+      if (!titulo || !arquivo) {
+        alerta('❌ Preencha título e escolha uma imagem!', 'error');
+        return;
+      }
+
+      if (arquivo.size > 2 * 1024 * 1024) {
+        alerta('❌ Imagem muito grande (máx 2MB)', 'error');
         return;
       }
 
       try {
+        const nomeArquivo = `galeria_${Date.now()}`;
+        const ref = firebase.storage().ref(`galeria/${nomeArquivo}`);
+        const snapshot = await ref.put(arquivo);
+        const url = await snapshot.ref.getDownloadURL();
+        console.log('📸 URL Galeria:', url);
+
         await db.collection('galeria').doc(String(Date.now())).set({ titulo, url });
         document.getElementById('newFotoTitulo').value = '';
-        document.getElementById('newFotoUrl').value = '';
-        alerta('✅ Adicionado!', 'success');
+        document.getElementById('newFotoArquivo').value = '';
+        alerta('✅ Foto adicionada!', 'success');
       } catch (e) {
-        alerta('❌ Erro', 'error');
+        console.error('❌ Erro ao adicionar foto:', e);
+        alerta('❌ Erro ao adicionar', 'error');
       }
     }
 
