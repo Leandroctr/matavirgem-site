@@ -1,1677 +1,808 @@
+```html
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Templo Escola Aruanda de Mata Virgem</title>
-  <meta name="description" content="Ensino · Umbanda · Jurema Sagrada"/>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=DM+Sans:wght@300;400;500&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+<title>Templo Escola Aruanda de Mata Virgem</title>
 
-    :root {
-      --bg:        #07140c;
-      --bg-2:      #0c1d13;
-      --bg-3:      #122b1c;
-      --bg-glow:   #16382342;
-      --line:      rgba(220,255,235,.08);
-      --line-2:    rgba(220,255,235,.16);
-      --text:      #eef5ee;
-      --text-dim:  rgba(238,245,238,.65);
-      --text-mute: rgba(238,245,238,.4);
-      --neon:      #3dff90;
-      --neon-2:    #6cffac;
-      --neon-soft: rgba(61,255,144,.12);
-      --neon-glow: 0 0 24px rgba(61,255,144,.45), 0 0 60px rgba(61,255,144,.18);
-      --neon-glow-strong: 0 0 32px rgba(61,255,144,.6), 0 0 80px rgba(61,255,144,.3);
-      --serif:     'Cormorant Garamond', Georgia, serif;
-      --sans:      'DM Sans', system-ui, sans-serif;
-      --mono:      'JetBrains Mono', ui-monospace, monospace;
-    }
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: var(--sans);
-      background: var(--bg);
-      color: var(--text);
-      overflow-x: hidden;
-      line-height: 1.55;
-      -webkit-font-smoothing: antialiased;
-    }
-    body::before {
-      content:''; position: fixed; inset: 0;
-      background:
-        radial-gradient(900px 700px at 50% 0%, rgba(61,255,144,.12), transparent 65%),
-        radial-gradient(700px 500px at 90% 50%, rgba(61,255,144,.07), transparent 65%),
-        radial-gradient(800px 600px at 10% 90%, rgba(61,255,144,.06), transparent 65%);
-      pointer-events: none; z-index: 0;
-    }
-    body::after {
-      content:''; position: fixed; inset: 0;
-      background-image:
-        radial-gradient(circle at 1px 1px, rgba(238,245,238,.025) 1px, transparent 0);
-      background-size: 22px 22px;
-      pointer-events: none; z-index: 0;
-    }
-    main, nav, footer { position: relative; z-index: 1; }
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
 
-    ::-webkit-scrollbar { width: 10px; }
-    ::-webkit-scrollbar-track { background: var(--bg); }
-    ::-webkit-scrollbar-thumb { background: var(--bg-3); }
-    ::-webkit-scrollbar-thumb:hover { background: var(--neon); }
-    ::selection { background: var(--neon); color: var(--bg); }
+<style>
 
-    /* ── decorative folhagem SVG sprites ── */
-    .leaf-decor {
-      position: absolute; pointer-events: none;
-      opacity: .18;
-      color: var(--neon);
-    }
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
 
-    /* ════ NAV ════ */
-    nav {
-      position: fixed; top:0; left:0; right:0; z-index: 300;
-      height: 76px;
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 0 2.4rem;
-      background: rgba(7,20,12,.75);
-      backdrop-filter: blur(20px) saturate(140%);
-      -webkit-backdrop-filter: blur(20px) saturate(140%);
-      border-bottom: 1px solid var(--line);
-    }
-    nav.scrolled { border-bottom-color: var(--neon-soft); background: rgba(7,20,12,.92); }
+:root{
+  --bg:#07140c;
+  --bg2:#0d1f15;
 
-    .nav-logo {
-      display: flex; align-items: center; gap: .85rem;
-      text-decoration: none;
-    }
-    .nav-logo .logo-wrap {
-      width: 42px; height: 42px;
-      border-radius: 50%;
-      background: var(--bg-3);
-      display: flex; align-items: center; justify-content: center;
-      box-shadow: var(--neon-glow);
-      transition: box-shadow .4s;
-    }
-    nav.scrolled .nav-logo .logo-wrap { box-shadow: 0 0 16px rgba(61,255,144,.3); }
-    .nav-logo img {
-      width: 36px; height: 36px;
-      object-fit: contain; border-radius: 50%;
-    }
-    .nav-logo-text {
-      font-family: var(--serif);
-      font-size: 1.05rem; font-weight: 500;
-      color: var(--text); line-height: 1; letter-spacing: .01em;
-    }
-    .nav-logo-text small {
-      display: block; font-family: var(--mono);
-      font-size: .58rem; font-weight: 400;
-      letter-spacing: .22em;
-      text-transform: uppercase; color: var(--neon);
-      margin-top: .35rem;
-    }
+  --text:#eef5ee;
+  --muted:rgba(255,255,255,.65);
 
-    .nav-links { display: flex; gap: 2rem; list-style: none; }
-    .nav-links a {
-      font-size: .82rem; font-weight: 400;
-      color: var(--text-dim); text-decoration: none;
-      position: relative; transition: color .25s;
-    }
-    .nav-links a::before {
-      content:''; position: absolute; left:0; bottom: -6px;
-      width: 0; height: 1px; background: var(--neon);
-      box-shadow: 0 0 8px var(--neon);
-      transition: width .3s;
-    }
-    .nav-links a:hover { color: var(--text); }
-    .nav-links a:hover::before { width: 100%; }
+  --line:rgba(255,255,255,.08);
 
-    .nav-canal {
-      display: inline-flex; align-items: center; gap: .55rem;
-      padding: .7rem 1.2rem;
-      background: var(--neon); color: var(--bg);
-      text-decoration: none;
-      font-family: var(--mono);
-      font-size: .7rem; letter-spacing: .12em; text-transform: uppercase;
-      font-weight: 500;
-      border-radius: 999px;
-      box-shadow: var(--neon-glow);
-      transition: all .3s;
-    }
-    .nav-canal:hover { box-shadow: var(--neon-glow-strong); transform: translateY(-1px); }
-    .nav-canal .pulse {
-      width: 8px; height: 8px; border-radius: 50%;
-      background: var(--bg);
-      animation: pulse 1.8s infinite;
-    }
-    @keyframes pulse {
-      0%, 100% { opacity: 1; }
-      50% { opacity: .3; }
-    }
+  --green:#3dff90;
 
-    .hamburger {
-      display: none; flex-direction: column; gap: 6px;
-      background: none; border: none; cursor: pointer; padding: 6px;
-    }
-    .hamburger span { display:block; width:24px; height:1.5px; background: var(--text); transition: all .3s; }
-    .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px,5px); }
-    .hamburger.open span:nth-child(2) { opacity: 0; }
-    .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px,-5px); }
+  --serif:'Cormorant Garamond', serif;
+  --sans:'DM Sans', sans-serif;
+}
 
-    .mobile-nav {
-      display: none; position: fixed;
-      top: 76px; left:0; right:0; z-index:299;
-      background: rgba(7,20,12,.97);
-      backdrop-filter: blur(20px);
-      border-bottom: 1px solid var(--line-2);
-      flex-direction: column;
-      padding: 1.4rem 1.6rem 2rem;
-    }
-    .mobile-nav.open { display: flex; }
-    .mobile-nav a {
-      font-size: 1rem; color: var(--text-dim); text-decoration: none;
-      padding: 1rem 0; border-bottom: 1px solid var(--line);
-    }
-    .mobile-nav a:last-child {
-      border-bottom: none; color: var(--neon); margin-top: .5rem;
-      font-family: var(--mono); font-size: .8rem; letter-spacing: .14em; text-transform: uppercase;
-    }
+html{
+  scroll-behavior:smooth;
+}
 
-    /* ════ HERO ════ */
-    #hero {
-      padding-top: 76px;
-      min-height: 100vh;
-      position: relative;
-      display: flex; flex-direction: column;
-      justify-content: center;
-      overflow: hidden;
-    }
-    .hero-bgimg {
-      position: absolute; inset: 0; z-index: 0;
-      background-image: url('https://matavirgem.org/capa.jpg');
-      background-size: cover; background-position: center 30%;
-      opacity: .16;
-      filter: saturate(.7) contrast(1.1) hue-rotate(-10deg);
-    }
-    .hero-bgimg::after {
-      content:''; position: absolute; inset: 0;
-      background:
-        radial-gradient(ellipse 70% 60% at 30% 50%, transparent 0%, var(--bg) 85%),
-        linear-gradient(180deg, var(--bg) 0%, transparent 25%, transparent 75%, var(--bg) 100%);
-    }
-    /* folhagens decorativas */
-    .hero-leaves {
-      position: absolute; inset: 0; z-index: 1;
-      pointer-events: none;
-      overflow: hidden;
-    }
-    .hero-leaves .leaf {
-      position: absolute;
-      filter: drop-shadow(0 0 20px rgba(61,255,144,.3));
-      color: var(--neon);
-    }
-    .hero-leaves .leaf.l1 { top: 8%;  left: 3%;  width: 130px; opacity: .22; transform: rotate(-22deg); }
-    .hero-leaves .leaf.l2 { top: 16%; right: 4%; width: 100px; opacity: .18; transform: rotate(34deg) scaleX(-1); }
-    .hero-leaves .leaf.l3 { bottom: 18%; left: 6%; width: 80px;  opacity: .18; transform: rotate(14deg); }
-    .hero-leaves .leaf.l4 { bottom: 12%; right: 8%; width: 110px; opacity: .16; transform: rotate(-50deg) scaleX(-1); }
+body{
+  background:var(--bg);
+  color:var(--text);
 
-    .hero-content {
-      position: relative; z-index: 2;
-      max-width: 1340px; width: 100%;
-      margin: 0 auto;
-      padding: 3.5rem 2.4rem 4rem;
-      display: grid;
-      grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
-      gap: 3rem;
-      align-items: center;
-    }
-    .hero-text {
-      text-align: left;
-      max-width: 600px;
-    }
-    .hero-figura {
-      position: relative;
-      height: 100%;
-      min-height: 540px;
-      display: flex; align-items: flex-end; justify-content: center;
-    }
-    .hero-figura::before {
-      content:''; position: absolute;
-      left: 50%; bottom: 0;
-      width: 90%; height: 90%;
-      transform: translateX(-50%);
-      background: radial-gradient(ellipse at 50% 40%, rgba(61,255,144,.18), transparent 65%);
-      pointer-events: none;
-    }
-    .hero-figura img {
-      position: relative; z-index: 1;
-      max-height: 78vh; max-width: 100%;
-      width: auto; height: 100%;
-      object-fit: contain; object-position: center bottom;
-      filter: drop-shadow(0 0 50px rgba(61,255,144,.22)) saturate(1.05) brightness(.97);
-      opacity: 0; animation: figIn 1.4s .15s cubic-bezier(.16,.7,.3,1) forwards;
-    }
-    @keyframes figIn {
-      from { opacity: 0; transform: translateY(40px) scale(.97); }
-      to   { opacity: 1; transform: translateY(0) scale(1); }
-    }
+  font-family:var(--sans);
 
-    .hero-emblem {
-      width: 84px; height: 84px;
-      margin: 0 0 1.6rem;
-      border-radius: 50%;
-      background: var(--bg-3);
-      display: flex; align-items: center; justify-content: center;
-      position: relative;
-      box-shadow: var(--neon-glow);
-      animation: emblemPulse 4s infinite ease-in-out;
-    }
-    .hero-emblem::before, .hero-emblem::after {
-      content: ''; position: absolute; inset: -8px;
-      border-radius: 50%;
-      border: 1px solid var(--neon-soft);
-      animation: ring 4s infinite ease-out;
-    }
-    .hero-emblem::after { animation-delay: 2s; }
-    @keyframes emblemPulse {
-      0%, 100% { box-shadow: 0 0 22px rgba(61,255,144,.4), 0 0 50px rgba(61,255,144,.15); }
-      50%      { box-shadow: 0 0 32px rgba(61,255,144,.6), 0 0 85px rgba(61,255,144,.28); }
-    }
-    @keyframes ring {
-      0%   { inset: -2px;  opacity: .8; }
-      100% { inset: -34px; opacity: 0;  }
-    }
-    .hero-emblem img { width: 60px; height: 60px; object-fit: contain; border-radius: 50%; position: relative; z-index: 1; }
+  overflow-x:hidden;
+}
 
-    .hero-tag {
-      display: inline-flex; align-items: center; gap: .8rem;
-      font-family: var(--mono);
-      font-size: .68rem; letter-spacing: .25em; text-transform: uppercase;
-      color: var(--neon);
-      margin-bottom: 1.6rem;
-      padding: .45rem 1rem;
-      border: 1px solid var(--neon-soft);
-      border-radius: 999px;
-      background: rgba(61,255,144,.04);
-      opacity: 0; animation: up .8s .1s forwards;
-    }
-    .hero-tag .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--neon); box-shadow: 0 0 8px var(--neon); }
+/* HERO */
 
-    .hero-h1 {
-      font-family: var(--serif);
-      font-weight: 300;
-      line-height: .98;
-      letter-spacing: -.02em;
-      color: var(--text);
-      margin-bottom: 1.2rem;
-      opacity: 0; animation: up .9s .25s forwards;
-    }
-    .hero-h1 .kicker {
-      display: block;
-      font-family: var(--mono);
-      font-size: clamp(.68rem, .92vw, .82rem);
-      letter-spacing: .32em;
-      text-transform: uppercase;
-      color: var(--text-mute);
-      font-weight: 400;
-      margin-bottom: .9rem;
-    }
-    .hero-h1 .title {
-      display: block;
-      font-family: var(--serif);
-      font-style: italic;
-      font-weight: 400;
-      font-size: clamp(3.4rem, 7.2vw, 6.8rem);
-      color: var(--neon);
-      text-shadow:
-        0 0 30px rgba(61,255,144,.4),
-        0 0 70px rgba(61,255,144,.2);
-      line-height: .92;
-    }
-    .hero-h1 .sub {
-      display: block;
-      font-family: var(--serif);
-      font-style: italic;
-      font-weight: 300;
-      font-size: clamp(1.4rem, 2.8vw, 2.4rem);
-      color: var(--text);
-      margin-top: .15em;
-      line-height: 1.05;
-      letter-spacing: -.01em;
-    }
-    .hero-sub {
-      max-width: 520px;
-      margin: 1.6rem 0 2.2rem;
-      font-size: 1.02rem;
-      line-height: 1.7;
-      color: var(--text-dim);
-      opacity: 0; animation: up .9s .4s forwards;
-    }
-    .hero-btns {
-      display: flex; gap: .9rem; flex-wrap: wrap;
-      opacity: 0; animation: up .9s .55s forwards;
-    }
-    .btn-sol {
-      display: inline-flex; align-items: center; gap: .7rem;
-      padding: 1.05rem 2rem;
-      background: var(--neon); color: var(--bg);
-      text-decoration: none;
-      font-family: var(--mono);
-      font-size: .74rem; letter-spacing: .14em; text-transform: uppercase;
-      font-weight: 500;
-      border-radius: 999px;
-      box-shadow: var(--neon-glow);
-      transition: all .35s;
-      position: relative;
-    }
-    .btn-sol:hover { transform: translateY(-2px); box-shadow: var(--neon-glow-strong); }
-    .btn-cont {
-      display: inline-flex; align-items: center; gap: .7rem;
-      padding: 1.05rem 2rem;
-      color: var(--text); text-decoration: none;
-      border: 1px solid var(--line-2);
-      border-radius: 999px;
-      font-family: var(--mono);
-      font-size: .74rem; letter-spacing: .14em; text-transform: uppercase;
-      transition: all .35s;
-      background: rgba(238,245,238,.02);
-      backdrop-filter: blur(6px);
-    }
-    .btn-cont:hover { border-color: var(--neon); color: var(--neon); }
+#hero{
+  position:relative;
 
-    /* Próxima hero card — destaque com glow */
-    .proxima-hero {
-      margin: 2.5rem 0 0;
-      max-width: 540px;
-      padding: 1.4rem 1.8rem;
-      background: rgba(18,43,28,.55);
-      backdrop-filter: blur(12px);
-      border: 1px solid var(--neon-soft);
-      border-radius: 16px;
-      box-shadow: 0 0 40px rgba(61,255,144,.12), inset 0 1px 0 rgba(61,255,144,.1);
-      display: flex; align-items: center; gap: 1.4rem;
-      text-align: left;
-      opacity: 0; animation: up .9s .7s forwards;
-      position: relative; overflow: hidden;
-    }
-    .proxima-hero::before {
-      content: ''; position: absolute;
-      top: 0; left: 0; bottom: 0;
-      width: 3px; background: var(--neon);
-      box-shadow: 0 0 12px var(--neon);
-    }
-    .proxima-hero-label {
-      font-family: var(--mono);
-      font-size: .58rem; letter-spacing: .25em; text-transform: uppercase;
-      color: var(--neon); margin-bottom: .25rem;
-    }
-    .proxima-hero-nome {
-      font-family: var(--serif);
-      font-size: 1.4rem; font-weight: 500;
-      color: var(--text); line-height: 1.2;
-    }
-    .proxima-hero-data {
-      font-family: var(--mono);
-      font-size: .72rem; letter-spacing: .08em;
-      color: var(--text-mute);
-      margin-top: .35rem;
-    }
+  min-height:100vh;
 
-    .hero-redes {
-      position: absolute; left: 2rem; bottom: 2rem;
-      display: flex; flex-direction: row; gap: .6rem;
-      z-index: 3;
-    }
-    .hero-redes a {
-      width: 44px; height: 44px;
-      display: flex; align-items: center; justify-content: center;
-      border: 1px solid var(--line-2);
-      background: rgba(7,20,12,.55);
-      backdrop-filter: blur(8px);
-      border-radius: 50%;
-      transition: all .3s;
-      color: var(--text);
-    }
-    .hero-redes a:hover {
-      border-color: var(--neon); color: var(--neon);
-      box-shadow: 0 0 16px rgba(61,255,144,.4);
-    }
-    .hero-redes svg { width: 18px; height: 18px; }
+  overflow:hidden;
 
-    /* scroll hint */
-    .scroll-hint {
-      position: absolute; bottom: 2.4rem; right: 2rem;
-      display: flex; flex-direction: column; align-items: center; gap: .6rem;
-      font-family: var(--mono);
-      font-size: .58rem; letter-spacing: .25em; text-transform: uppercase;
-      color: var(--text-mute);
-      opacity: 0; animation: up .9s .9s forwards;
-      z-index: 3;
-    }
-    .scroll-hint .line { width: 1px; height: 32px; background: linear-gradient(180deg, var(--neon), transparent); animation: scrollLine 2s infinite; }
-    @keyframes scrollLine {
-      0% { transform: scaleY(0); transform-origin: top; }
-      50% { transform: scaleY(1); transform-origin: top; }
-      51% { transform: scaleY(1); transform-origin: bottom; }
-      100% { transform: scaleY(0); transform-origin: bottom; }
-    }
+  display:flex;
+  align-items:center;
 
-    /* ════ SECTION SHARED ════ */
-    section { padding: 8rem 0; position: relative; }
-    .container { max-width: 1240px; margin: 0 auto; padding: 0 2.4rem; }
+  background:
+    radial-gradient(
+      circle at top,
+      #163823 0%,
+      #07140c 65%
+    );
+}
 
-    .sec-head { margin-bottom: 4.5rem; text-align: center; max-width: 760px; margin-left: auto; margin-right: auto; }
-    .sec-label {
-      display: inline-flex; align-items: center; gap: .8rem;
-      font-family: var(--mono);
-      font-size: .68rem; letter-spacing: .28em; text-transform: uppercase;
-      color: var(--neon); margin-bottom: 1.2rem;
-    }
-    .sec-label::before, .sec-label::after {
-      content: ''; width: 26px; height: 1px; background: var(--neon);
-      box-shadow: 0 0 6px var(--neon);
-    }
-    .sec-title {
-      font-family: var(--serif);
-      font-size: clamp(2.4rem, 5vw, 4.4rem);
-      font-weight: 300;
-      line-height: 1.05;
-      letter-spacing: -.02em;
-      color: var(--text);
-    }
-    .sec-title em {
-      font-style: italic; color: var(--neon);
-      text-shadow: 0 0 28px rgba(61,255,144,.35);
-    }
-    .sec-sub {
-      font-size: 1.02rem;
-      color: var(--text-dim);
-      margin-top: 1.4rem;
-      line-height: 1.7;
-      max-width: 580px;
-      margin-left: auto; margin-right: auto;
-    }
+.hero-overlay{
+  position:absolute;
+  inset:0;
 
-    /* ════ SOBRE ════ */
-    #sobre { position: relative; }
-    .sobre-frase {
-      max-width: 920px; margin: 0 auto;
-      font-family: var(--serif);
-      font-size: clamp(1.5rem, 2.8vw, 2.3rem);
-      font-weight: 300; font-style: italic;
-      line-height: 1.4;
-      color: var(--text);
-      text-align: center;
-    }
-    .sobre-frase em { font-style: normal; color: var(--neon); text-shadow: 0 0 20px rgba(61,255,144,.25); }
+  background:
+    linear-gradient(
+      90deg,
+      rgba(7,20,12,.96) 0%,
+      rgba(7,20,12,.82) 45%,
+      rgba(7,20,12,.18) 100%
+    );
 
-    /* ════ PRÓXIMA GIRA ════ */
-    #proximaGira { background: linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%); position: relative; }
-    #proximaGira::before {
-      content: ''; position: absolute;
-      top: 0; left: 50%; width: 1px; height: 80px;
-      background: linear-gradient(180deg, var(--neon), transparent);
-      transform: translateX(-50%);
-      box-shadow: 0 0 8px var(--neon);
-    }
+  z-index:1;
+}
 
-    .prox-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
-      gap: 4rem;
-      align-items: center;
-      justify-items: start;
-    }
-    .prox-img {
-      position: relative;
-      aspect-ratio: 9/16;
-      width: 100%;
-      max-width: 420px;
-      justify-self: center;
-      overflow: hidden;
-      border-radius: 20px;
-      box-shadow: 0 30px 80px rgba(7,20,12,.6), 0 0 60px rgba(61,255,144,.15);
-    }
-    .prox-img::before {
-      content: ''; position: absolute; inset: 0;
-      border: 1px solid var(--neon-soft);
-      border-radius: 20px;
-      z-index: 2; pointer-events: none;
-    }
-    .prox-img::after {
-      content: ''; position: absolute; inset: 0;
-      background: linear-gradient(180deg, transparent 40%, rgba(7,20,12,.85) 100%);
-      z-index: 1; pointer-events: none;
-      border-radius: 20px;
-    }
-    .prox-img img {
-      width: 100%; height: 100%;
-      object-fit: cover; display: block;
-      transition: transform 8s ease-out;
-    }
-    .prox-img:hover img { transform: scale(1.06); }
+.hero-content{
+  position:relative;
+  z-index:5;
 
-    .prox-info { text-align: left; }
-    .prox-info .sec-label { margin-bottom: 1.2rem; }
-    .prox-info .sec-label::before, .prox-info .sec-label::after { display: none; }
-    .prox-info .sec-label::before {
-      display: inline-block; content: ''; width: 30px; height: 1px;
-      background: var(--neon); box-shadow: 0 0 6px var(--neon);
-    }
-    .prox-info h2 {
-      font-family: var(--serif);
-      font-size: clamp(2.2rem, 4vw, 3.4rem);
-      font-weight: 300;
-      line-height: 1.04;
-      letter-spacing: -.015em;
-      color: var(--text);
-      margin-bottom: 1.6rem;
-    }
-    .prox-info h2 em { font-style: italic; color: var(--neon); text-shadow: 0 0 24px rgba(61,255,144,.3); }
-    .prox-info p {
-      font-size: 1rem; line-height: 1.7;
-      color: var(--text-dim);
-      margin-bottom: 1.2rem;
-    }
-    .prox-info p strong { color: var(--text); font-weight: 500; }
-    .prox-info p:nth-of-type(2) {
-      font-family: var(--mono);
-      font-size: .82rem;
-      letter-spacing: .04em;
-      padding: 1.1rem 1.4rem;
-      background: rgba(18,43,28,.55);
-      border-left: 2px solid var(--neon);
-      border-radius: 0 8px 8px 0;
-      margin: 1.5rem 0;
-      color: var(--text);
-    }
-    .prox-info p:nth-of-type(2) strong { color: var(--neon); }
+  width:100%;
+  max-width:1450px;
 
-    /* ════ AGENDA ════ */
-    #agenda { background: var(--bg); position: relative; overflow: hidden; }
-    #agenda::before {
-      content: ''; position: absolute;
-      top: 20%; left: -200px;
-      width: 500px; height: 500px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(61,255,144,.05), transparent 70%);
-      pointer-events: none;
-    }
+  margin:0 auto;
 
-    .agenda-banner {
-      margin-bottom: 3rem;
-      aspect-ratio: 16/9;
-      overflow: hidden;
-      background: var(--bg-2);
-      border: 1px solid var(--line);
-      border-radius: 20px;
-      position: relative;
-      box-shadow: 0 20px 60px rgba(7,20,12,.5);
-    }
-    .agenda-banner img {
-      width: 100%; height: 100%;
-      object-fit: contain; display: block;
-    }
-    .agenda-banner::after {
-      content: ''; position: absolute; inset: 0;
-      border-radius: 20px;
-      box-shadow: inset 0 0 60px rgba(61,255,144,.08);
-      pointer-events: none;
-    }
+  padding:
+    120px
+    60px
+    60px;
 
-    .agenda-lista {
-      border: 1px solid var(--line);
-      border-radius: 16px;
-      overflow: hidden;
-      background: rgba(12,29,19,.4);
-    }
-    .evento {
-      display: grid;
-      grid-template-columns: 100px auto 1fr auto;
-      gap: 1.8rem;
-      align-items: center;
-      padding: 1.7rem 2rem;
-      border-bottom: 1px solid var(--line);
-      transition: all .3s;
-      position: relative;
-    }
-    .evento:last-child { border-bottom: none; }
-    .evento::before {
-      content: ''; position: absolute; left: 0; top: 0; bottom: 0;
-      width: 3px; background: var(--neon);
-      box-shadow: 0 0 12px var(--neon);
-      transform: scaleY(0); transform-origin: center;
-      transition: transform .3s;
-    }
-    .evento:hover { background: rgba(18,43,28,.55); }
-    .evento:hover::before { transform: scaleY(1); }
-    .evento-data-box {
-      display: flex; align-items: baseline; gap: .6rem;
-    }
-    .evento-dia {
-      font-family: var(--serif);
-      font-size: 3.2rem; font-weight: 300;
-      color: var(--text);
-      line-height: 1;
-      transition: color .3s;
-    }
-    .evento:hover .evento-dia { color: var(--neon); }
-    .evento-mes {
-      font-family: var(--mono);
-      font-size: .68rem;
-      letter-spacing: .22em; text-transform: uppercase;
-      color: var(--neon);
-    }
-    .evento-sep {
-      width: 1px; height: 40px;
-      background: var(--line-2);
-    }
-    .evento-info { min-width: 0; }
-    .evento-semana {
-      font-family: var(--mono);
-      font-size: .62rem;
-      letter-spacing: .22em; text-transform: uppercase;
-      color: var(--text-mute);
-      margin-bottom: .4rem;
-    }
-    .evento-nome {
-      font-family: var(--serif);
-      font-size: 1.45rem; font-weight: 500; font-style: italic;
-      color: var(--text);
-      line-height: 1.2;
-    }
-    .evento-hora {
-      font-family: var(--mono);
-      font-size: .76rem;
-      letter-spacing: .1em;
-      color: var(--text-dim);
-      padding: .5rem .9rem;
-      border: 1px solid var(--line-2);
-      border-radius: 999px;
-    }
+  display:grid;
 
-    /* ════ PRIMEIRA VISITA ════ */
-    #primeira { background: var(--bg-2); position: relative; }
-    .pv-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1.2rem;
-    }
-    .pv-card {
-      padding: 2.2rem 1.6rem;
-      background: linear-gradient(180deg, rgba(18,43,28,.5), rgba(12,29,19,.3));
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      position: relative; overflow: hidden;
-      transition: all .4s;
-    }
-    .pv-card:hover { border-color: var(--neon-soft); transform: translateY(-4px); }
-    .pv-num {
-      width: 44px; height: 44px;
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      background: var(--neon);
-      color: var(--bg);
-      font-family: var(--mono);
-      font-size: .82rem; font-weight: 500;
-      box-shadow: var(--neon-glow);
-      margin-bottom: 1.4rem;
-    }
-    .pv-h {
-      font-family: var(--serif);
-      font-size: 1.5rem; font-weight: 400; font-style: italic;
-      color: var(--text); line-height: 1.2;
-      margin-bottom: .9rem;
-    }
-    .pv-p { font-size: .92rem; color: var(--text-dim); line-height: 1.65; }
+  grid-template-columns:
+    1fr
+    1fr;
 
-    /* ════ GALERIA ════ */
-    #fotos { background: var(--bg); }
-    .galeria-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-      gap: 12px;
-    }
-    .gal-item {
-      position: relative;
-      aspect-ratio: 1/1;
-      overflow: hidden;
-      border-radius: 14px;
-      cursor: pointer;
-      background: var(--bg-2);
-    }
-    .gal-item::after {
-      content: ''; position: absolute; inset: 0;
-      border-radius: 14px;
-      box-shadow: inset 0 0 0 1px var(--line-2);
-      transition: box-shadow .4s;
-      pointer-events: none;
-    }
-    .gal-item:hover::after {
-      box-shadow: inset 0 0 0 1px var(--neon), 0 0 30px rgba(61,255,144,.4);
-    }
-    .gal-item img {
-      width: 100%; height: 100%;
-      object-fit: cover; display: block;
-      transition: transform .8s cubic-bezier(.16,.1,.3,1), filter .5s;
-      filter: brightness(.85) saturate(.9);
-    }
-    .gal-item:hover img { transform: scale(1.1); filter: brightness(1.05) saturate(1.15); }
-    .gal-overlay {
-      position: absolute; inset: 0;
-      background: linear-gradient(180deg, transparent 40%, rgba(7,20,12,.85));
-      display: flex; align-items: flex-end; padding: 1rem 1.2rem;
-      opacity: 0; transition: opacity .4s;
-    }
-    .gal-item:hover .gal-overlay { opacity: 1; }
-    .gal-icon-wrap {
-      font-family: var(--mono);
-      font-size: .62rem;
-      letter-spacing: .25em; text-transform: uppercase;
-      color: var(--neon);
-      display: flex; align-items: center; gap: .5rem;
-    }
-    .gal-icon-wrap::before { content: '↗'; font-size: 1.1rem; }
+  gap:40px;
 
-    .galeria-footer { margin-top: 3rem; text-align: center; }
-    .btn-instagram {
-      display: inline-flex; align-items: center; gap: .7rem;
-      padding: .95rem 1.8rem;
-      border: 1px solid var(--neon-soft);
-      color: var(--text); text-decoration: none;
-      background: rgba(61,255,144,.04);
-      backdrop-filter: blur(6px);
-      font-family: var(--mono);
-      font-size: .72rem; letter-spacing: .15em; text-transform: uppercase;
-      border-radius: 999px;
-      transition: all .3s;
-    }
-    .btn-instagram:hover { border-color: var(--neon); color: var(--neon); box-shadow: 0 0 24px rgba(61,255,144,.25); }
+  align-items:center;
+}
 
-    /* ════ NEWS ════ */
-    #news { background: var(--bg-2); position: relative; overflow: hidden; }
-    #news::before {
-      content: ''; position: absolute;
-      bottom: -200px; right: -150px;
-      width: 600px; height: 600px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(61,255,144,.08), transparent 70%);
-      pointer-events: none;
-    }
-    .news-card {
-      max-width: 840px; margin: 0 auto;
-      padding: 3.5rem 3rem;
-      background: linear-gradient(180deg, rgba(18,43,28,.7), rgba(12,29,19,.5));
-      border: 1px solid var(--neon-soft);
-      border-radius: 24px;
-      text-align: center;
-      box-shadow: 0 30px 80px rgba(7,20,12,.5), 0 0 60px rgba(61,255,144,.1);
-      position: relative; overflow: hidden;
-      backdrop-filter: blur(20px);
-    }
-    .news-card::before {
-      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
-      background: linear-gradient(90deg, transparent, var(--neon), transparent);
-      opacity: .6;
-    }
-    .news-card .sec-label { margin-bottom: 1.4rem; }
-    .news-card h2 {
-      font-family: var(--serif);
-      font-size: clamp(2rem, 3.6vw, 3rem);
-      font-weight: 300;
-      line-height: 1.1;
-      color: var(--text);
-      margin-bottom: 1.2rem;
-    }
-    .news-card h2 em { font-style: italic; color: var(--neon); text-shadow: 0 0 20px rgba(61,255,144,.3); }
-    .news-card .sub {
-      font-size: 1rem;
-      color: var(--text-dim);
-      max-width: 540px; margin: 0 auto 2.4rem;
-      line-height: 1.6;
-    }
-    .news-form {
-      display: flex; flex-direction: column; gap: 1rem;
-      max-width: 480px; margin: 0 auto;
-    }
-    .news-row {
-      display: flex; gap: 0;
-      background: rgba(7,20,12,.6);
-      border: 1px solid var(--line-2);
-      border-radius: 999px;
-      overflow: hidden;
-      transition: border-color .3s, box-shadow .3s;
-    }
-    .news-row:focus-within { border-color: var(--neon); box-shadow: 0 0 24px rgba(61,255,144,.25); }
-    .news-row input {
-      flex: 1;
-      background: transparent;
-      border: none;
-      padding: 1.05rem 1.5rem;
-      color: var(--text);
-      font-family: var(--sans);
-      font-size: .96rem;
-      outline: none;
-    }
-    .news-row input::placeholder { color: var(--text-mute); }
-    .news-row button {
-      background: var(--neon); color: var(--bg);
-      border: none;
-      padding: 0 1.8rem;
-      font-family: var(--mono);
-      font-size: .72rem; letter-spacing: .14em; text-transform: uppercase;
-      font-weight: 500;
-      cursor: pointer;
-      transition: all .3s;
-      border-radius: 999px;
-      margin: 4px;
-    }
-    .news-row button:hover { background: var(--neon-2); box-shadow: 0 0 24px rgba(61,255,144,.5); }
-    .news-fine {
-      font-family: var(--mono);
-      font-size: .62rem; letter-spacing: .12em;
-      color: var(--text-mute);
-      margin-top: 1rem;
-    }
-    #newsMsg {
-      font-family: var(--mono);
-      font-size: .72rem; letter-spacing: .12em;
-      color: var(--neon);
-      margin-top: .8rem; min-height: 1rem;
-    }
+.hero-left{
+  max-width:620px;
+}
 
-    /* ════ LOCAL ════ */
-    #local { background: var(--bg); }
-    .mapa-wrap {
-      margin-top: 2rem;
-      border: 1px solid var(--line);
-      border-radius: 20px;
-      overflow: hidden;
-      box-shadow: 0 20px 60px rgba(7,20,12,.5);
-      position: relative;
-    }
-    .mapa-wrap::after {
-      content: ''; position: absolute; inset: 0;
-      pointer-events: none;
-      box-shadow: inset 0 0 60px rgba(7,20,12,.4);
-      border-radius: 20px;
-    }
-    .mapa-wrap iframe {
-      width: 100%; height: 460px; border: none; display: block;
-      filter: invert(.92) hue-rotate(180deg) saturate(.5) brightness(.85);
-    }
-    .local-info {
-      display: grid; grid-template-columns: repeat(3, 1fr);
-      gap: 1.2rem;
-      margin-bottom: 2rem;
-    }
-    .local-info > div {
-      padding: 1.6rem;
-      background: rgba(18,43,28,.4);
-      border: 1px solid var(--line);
-      border-radius: 14px;
-    }
-    .local-info-label {
-      font-family: var(--mono);
-      font-size: .6rem; letter-spacing: .22em; text-transform: uppercase;
-      color: var(--neon); margin-bottom: .6rem;
-    }
-    .local-info-val {
-      font-family: var(--serif);
-      font-size: 1.1rem; color: var(--text); line-height: 1.4;
-    }
-    .local-info-val a { color: var(--neon); text-decoration: none; }
-    .local-info-val a:hover { text-shadow: 0 0 12px var(--neon); }
+.hero-badge{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
 
-    /* ════ CONTATO ════ */
-    #contato { background: var(--bg-2); }
-    .contato-grid {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem;
-      max-width: 880px; margin: 0 auto;
-    }
-    .contato-item {
-      display: flex; align-items: center; gap: 1.4rem;
-      padding: 2rem 2.2rem;
-      background: linear-gradient(180deg, rgba(18,43,28,.55), rgba(12,29,19,.35));
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      text-decoration: none; color: inherit;
-      transition: all .35s;
-    }
-    .contato-item:hover {
-      border-color: var(--neon-soft);
-      transform: translateY(-3px);
-      box-shadow: 0 20px 50px rgba(7,20,12,.4), 0 0 32px rgba(61,255,144,.12);
-    }
-    .contato-icon {
-      width: 52px; height: 52px;
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      background: rgba(61,255,144,.1);
-      border: 1px solid var(--neon-soft);
-      flex-shrink: 0;
-      box-shadow: 0 0 20px rgba(61,255,144,.15);
-    }
-    .contato-icon svg { width: 22px; height: 22px; }
-    .contato-txt strong {
-      display: block;
-      font-family: var(--mono);
-      font-size: .7rem; letter-spacing: .18em; text-transform: uppercase;
-      color: var(--neon); margin-bottom: .35rem;
-      font-weight: 500;
-    }
-    .contato-txt span {
-      font-family: var(--serif);
-      font-size: 1.15rem; font-weight: 400; color: var(--text);
-    }
+  padding:
+    10px
+    18px;
 
-    /* ════ FOOTER ════ */
-    footer {
-      background: var(--bg);
-      padding: 5rem 2.4rem 2.5rem;
-      border-top: 1px solid var(--line-2);
-      position: relative;
-    }
-    footer::before {
-      content: ''; position: absolute;
-      top: 0; left: 50%; width: 80px; height: 1px;
-      background: var(--neon); transform: translateX(-50%);
-      box-shadow: 0 0 12px var(--neon);
-    }
-    .foot-top {
-      max-width: 1240px; margin: 0 auto;
-      display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr;
-      gap: 4rem;
-      padding-bottom: 3rem;
-      border-bottom: 1px solid var(--line);
-    }
-    .foot-brand-wrap { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.2rem; }
-    .foot-brand-wrap img { width: 50px; height: 50px; border-radius: 50%; box-shadow: var(--neon-glow); }
-    .foot-brand {
-      font-family: var(--serif);
-      font-size: 1.5rem; font-weight: 500; font-style: italic;
-      color: var(--text); line-height: 1.1;
-    }
-    .foot-brand small {
-      display: block;
-      font-family: var(--mono); font-style: normal;
-      font-size: .62rem; letter-spacing: .22em; text-transform: uppercase;
-      color: var(--neon); margin-top: .35rem;
-    }
-    .foot-quote {
-      font-family: var(--serif); font-style: italic;
-      font-size: .98rem; line-height: 1.6;
-      color: var(--text-dim);
-      max-width: 320px;
-    }
-    .foot-col h4 {
-      font-family: var(--mono);
-      font-size: .62rem; letter-spacing: .22em; text-transform: uppercase;
-      color: var(--neon); margin-bottom: 1.2rem;
-      font-weight: 500;
-    }
-    .foot-col ul { list-style: none; display: flex; flex-direction: column; gap: .7rem; }
-    .foot-col a {
-      font-size: .92rem; color: var(--text-dim);
-      text-decoration: none; transition: color .3s;
-    }
-    .foot-col a:hover { color: var(--neon); }
+  border:
+    1px solid rgba(61,255,144,.16);
 
-    .foot-bottom {
-      max-width: 1240px; margin: 0 auto;
-      padding-top: 2rem;
-      display: flex; justify-content: space-between; align-items: center;
-      flex-wrap: wrap; gap: 1rem;
-    }
-    .foot-copy {
-      font-family: var(--mono);
-      font-size: .65rem; letter-spacing: .14em;
-      color: var(--text-mute);
-    }
-    .foot-admin a {
-      font-family: var(--mono);
-      font-size: .62rem; letter-spacing: .18em; text-transform: uppercase;
-      color: var(--text-mute); text-decoration: none;
-      transition: color .3s;
-    }
-    .foot-admin a:hover { color: var(--neon); }
+  border-radius:999px;
 
-    /* ════ LIGHTBOX ════ */
-    .lightbox {
-      position: fixed; inset: 0; z-index: 500;
-      background: rgba(3,10,6,.96);
-      display: none; align-items: center; justify-content: center;
-      backdrop-filter: blur(16px);
-      opacity: 0; transition: opacity .35s;
-    }
-    .lightbox.open { display: flex; opacity: 1; }
-    .lb-container { position: relative; width: 90%; max-width: 1000px; display: flex; flex-direction: column; align-items: center; }
-    .lightbox img {
-      max-width: 90vw; max-height: 82vh;
-      border-radius: 14px;
-      border: 1px solid var(--neon-soft);
-      box-shadow: 0 30px 80px rgba(0,0,0,.6), 0 0 60px rgba(61,255,144,.15);
-      animation: imgEntry .5s cubic-bezier(.16,1,.3,1);
-    }
-    @keyframes imgEntry {
-      from { opacity: 0; transform: scale(.94); }
-      to { opacity: 1; transform: scale(1); }
-    }
-    .lb-close {
-      position: absolute; top: -60px; right: 0;
-      width: 44px; height: 44px;
-      background: rgba(61,255,144,.1); border: 1px solid var(--neon-soft);
-      color: var(--text); cursor: pointer;
-      font-size: 1.4rem; border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      transition: all .3s;
-    }
-    .lb-close:hover { border-color: var(--neon); transform: rotate(90deg) scale(1.05); box-shadow: 0 0 24px rgba(61,255,144,.4); }
-    .lb-nav {
-      position: absolute; top: 50%; width: 100%;
-      transform: translateY(-50%);
-      display: flex; justify-content: space-between;
-      padding: 0 1.2rem; pointer-events: none;
-    }
-    .lb-btn {
-      width: 44px; height: 44px;
-      background: rgba(7,20,12,.6); border: 1px solid var(--neon-soft);
-      color: var(--text); cursor: pointer;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.2rem; pointer-events: auto;
-      border-radius: 50%;
-      transition: all .3s; backdrop-filter: blur(8px);
-    }
-    .lb-btn:hover { border-color: var(--neon); color: var(--neon); box-shadow: 0 0 24px rgba(61,255,144,.3); }
-    .lb-counter {
-      position: absolute; bottom: -45px; left: 50%; transform: translateX(-50%);
-      font-family: var(--mono);
-      font-size: .68rem; letter-spacing: .2em;
-      color: var(--text-mute);
-    }
+  background:
+    rgba(61,255,144,.05);
 
-    /* ════ FLOAT ════ */
-    .btn-flutuante {
-      position: fixed; bottom: 1.8rem; right: 1.8rem; z-index: 400;
-      display: flex; align-items: center; gap: .65rem;
-      padding: .95rem 1.4rem;
-      background: var(--neon); color: var(--bg);
-      text-decoration: none;
-      font-family: var(--mono);
-      font-size: .68rem; letter-spacing: .1em;
-      max-width: 250px;
-      border-radius: 999px;
-      box-shadow: var(--neon-glow-strong);
-      opacity: 0; transform: translateY(20px);
-      transition: opacity .5s, transform .5s, box-shadow .3s;
-      font-weight: 500;
-    }
-    .btn-flutuante.show { opacity: 1; transform: translateY(0); }
-    .btn-flutuante:hover { box-shadow: 0 0 40px rgba(61,255,144,.7), 0 0 100px rgba(61,255,144,.4); }
-    .btn-flutuante svg { width: 18px; height: 18px; flex-shrink: 0; }
+  color:var(--green);
 
-    @keyframes up {
-      from { opacity: 0; transform: translateY(22px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    .reveal { opacity: 0; transform: translateY(30px); transition: opacity 1s, transform 1s; }
-    .reveal.in { opacity: 1; transform: translateY(0); }
+  font-size:12px;
 
-    /* responsive */
-    @media (max-width: 1024px) {
-      .nav-links { display: none; }
-      .hamburger { display: flex; }
-      .nav-canal { display: none; }
-      .pv-grid, .local-info { grid-template-columns: 1fr 1fr; }
-      .foot-top { grid-template-columns: 1fr 1fr; }
+  letter-spacing:.22em;
 
-      /* hero stacks on tablet */
-      .hero-content { grid-template-columns: 1fr; gap: 1.5rem; padding: 2.4rem 2rem 3rem; }
-      .hero-text { margin: 0 auto; text-align: center; max-width: 640px; }
-      .hero-emblem { margin-left: auto; margin-right: auto; }
-      .hero-sub { margin-left: auto; margin-right: auto; }
-      .hero-btns { justify-content: center; }
-      .proxima-hero { margin-left: auto; margin-right: auto; }
-      .hero-figura { min-height: 380px; max-height: 50vh; order: -1; }
-      .hero-figura img { max-height: 50vh; }
-      .hero-redes { left: 50%; transform: translateX(-50%); bottom: 1.2rem; }
-      .scroll-hint { display: none; }
+  text-transform:uppercase;
 
-      /* próxima gira stacks */
-      .prox-grid { grid-template-columns: 1fr; gap: 2.5rem; justify-items: center; }
-      .prox-info { text-align: left; max-width: 540px; }
-    }
-    @media (max-width: 768px) {
-      nav { padding: 0 1.2rem; }
-      .hero-content { padding: 2rem 1.2rem 2.8rem; gap: 1rem; }
-      .hero-emblem { width: 72px; height: 72px; margin-bottom: 1.2rem; }
-      .hero-emblem img { width: 52px; height: 52px; }
-      .hero-figura { min-height: 320px; max-height: 42vh; }
-      .hero-figura img { max-height: 42vh; }
-      .proxima-hero { flex-direction: column; align-items: flex-start; gap: .6rem; padding: 1.2rem 1.4rem; max-width: 100%; }
-      .hero-redes { display: none; }
+  margin-bottom:28px;
+}
 
-      section { padding: 5rem 0; }
-      .container { padding: 0 1.4rem; }
-      .sec-head { margin-bottom: 3rem; }
+.badge-dot{
+  width:7px;
+  height:7px;
 
-      .pv-grid, .local-info, .contato-grid { grid-template-columns: 1fr; }
+  border-radius:50%;
 
-      .prox-grid { grid-template-columns: 1fr; gap: 2.5rem; }
-      .prox-img { aspect-ratio: 9/16; max-width: 320px; }
-      .prox-info { text-align: left; }
+  background:var(--green);
 
-      .evento { grid-template-columns: 70px 1px 1fr; gap: 1.2rem; padding: 1.3rem 1.2rem; }
-      .evento-hora { grid-column: 3; font-size: .65rem; }
-      .evento-dia { font-size: 2.4rem; }
-      .evento-nome { font-size: 1.15rem; }
+  box-shadow:
+    0 0 12px var(--green);
+}
 
-      .galeria-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+.hero-logo{
+  margin-bottom:28px;
+}
 
-      .news-card { padding: 2.4rem 1.4rem; }
-      .news-row { flex-direction: column; gap: .5rem; padding: .5rem; }
-      .news-row button { padding: 1rem; margin: 0; }
+.hero-logo img{
+  width:86px;
+  height:86px;
 
-      .foot-top { grid-template-columns: 1fr; gap: 2.5rem; padding-bottom: 2rem; }
-      .foot-bottom { flex-direction: column; align-items: flex-start; }
+  object-fit:contain;
 
-      .btn-flutuante { font-size: .62rem; padding: .7rem 1rem; bottom: 1.2rem; right: 1.2rem; }
-    }
-  </style>
+  border-radius:50%;
+
+  filter:
+    drop-shadow(
+      0 0 28px
+      rgba(61,255,144,.25)
+    );
+}
+
+.hero-title{
+  line-height:.92;
+
+  margin-bottom:30px;
+}
+
+.hero-kicker{
+  display:block;
+
+  margin-bottom:18px;
+
+  font-size:13px;
+
+  letter-spacing:.32em;
+
+  text-transform:uppercase;
+
+  color:
+    rgba(255,255,255,.45);
+}
+
+.hero-main{
+  display:block;
+
+  font-family:var(--serif);
+
+  font-size:
+    clamp(72px,9vw,140px);
+
+  font-style:italic;
+  font-weight:500;
+
+  color:var(--green);
+
+  text-shadow:
+    0 0 40px
+    rgba(61,255,144,.22);
+}
+
+.hero-sub{
+  display:block;
+
+  margin-top:6px;
+
+  font-family:var(--serif);
+
+  font-size:
+    clamp(34px,4vw,56px);
+
+  font-style:italic;
+  font-weight:300;
+}
+
+.hero-text{
+  max-width:520px;
+
+  font-size:18px;
+
+  line-height:1.8;
+
+  color:var(--muted);
+
+  margin-bottom:38px;
+}
+
+.hero-actions{
+  display:flex;
+  gap:18px;
+
+  flex-wrap:wrap;
+}
+
+.btn-primary{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+
+  padding:
+    18px
+    32px;
+
+  background:var(--green);
+
+  color:#07140c;
+
+  text-decoration:none;
+
+  border-radius:999px;
+
+  font-size:13px;
+
+  letter-spacing:.16em;
+
+  text-transform:uppercase;
+
+  font-weight:700;
+
+  transition:.35s;
+
+  box-shadow:
+    0 0 36px
+    rgba(61,255,144,.26);
+}
+
+.btn-primary:hover{
+  transform:translateY(-3px);
+
+  box-shadow:
+    0 0 60px
+    rgba(61,255,144,.45);
+}
+
+.btn-secondary{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+
+  padding:
+    18px
+    32px;
+
+  border:
+    1px solid rgba(255,255,255,.14);
+
+  border-radius:999px;
+
+  text-decoration:none;
+
+  color:white;
+
+  font-size:13px;
+
+  letter-spacing:.16em;
+
+  text-transform:uppercase;
+
+  transition:.35s;
+}
+
+.btn-secondary:hover{
+  border-color:var(--green);
+
+  color:var(--green);
+}
+
+/* FIGURA */
+
+.hero-right{
+  position:relative;
+
+  min-height:820px;
+
+  display:flex;
+  align-items:flex-end;
+  justify-content:flex-end;
+
+  overflow:hidden;
+}
+
+.hero-glow{
+  position:absolute;
+
+  width:780px;
+  height:780px;
+
+  right:-120px;
+  bottom:-120px;
+
+  border-radius:50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(61,255,144,.22) 0%,
+      rgba(61,255,144,.08) 35%,
+      transparent 72%
+    );
+
+  filter:blur(70px);
+
+  z-index:0;
+}
+
+.hero-caboclo{
+  position:relative;
+
+  z-index:3;
+
+  height:98vh;
+  max-height:980px;
+
+  width:auto;
+
+  object-fit:contain;
+
+  transform:
+    translateX(6%);
+
+  filter:
+    drop-shadow(
+      0 0 60px
+      rgba(61,255,144,.12)
+    )
+    saturate(1.04)
+    brightness(.96);
+
+  opacity:.98;
+
+  animation:
+    figIn 1.2s
+    cubic-bezier(.16,.7,.3,1)
+    forwards;
+}
+
+@keyframes figIn{
+
+  from{
+    opacity:0;
+
+    transform:
+      translateY(40px)
+      translateX(6%)
+      scale(.96);
+  }
+
+  to{
+    opacity:1;
+
+    transform:
+      translateY(0)
+      translateX(6%)
+      scale(1);
+  }
+}
+
+/* SEÇÕES */
+
+section{
+  padding:120px 24px;
+}
+
+.container{
+  max-width:1240px;
+  margin:0 auto;
+}
+
+.section-title{
+  font-family:var(--serif);
+
+  font-size:
+    clamp(42px,5vw,72px);
+
+  font-style:italic;
+  font-weight:400;
+
+  margin-bottom:20px;
+}
+
+.section-title span{
+  color:var(--green);
+}
+
+.section-text{
+  max-width:760px;
+
+  font-size:18px;
+
+  line-height:1.8;
+
+  color:var(--muted);
+}
+
+/* SOBRE */
+
+#sobre{
+  background:var(--bg2);
+}
+
+/* AGENDA */
+
+.agenda-card{
+  margin-top:40px;
+
+  padding:32px;
+
+  border:
+    1px solid var(--line);
+
+  border-radius:22px;
+
+  background:
+    rgba(255,255,255,.02);
+}
+
+.evento{
+  padding:
+    22px
+    0;
+
+  border-bottom:
+    1px solid var(--line);
+}
+
+.evento:last-child{
+  border-bottom:none;
+}
+
+.evento h3{
+  font-family:var(--serif);
+
+  font-size:34px;
+
+  font-style:italic;
+  font-weight:400;
+
+  margin-bottom:8px;
+}
+
+.evento p{
+  color:var(--muted);
+}
+
+/* CONTATO */
+
+.contato-grid{
+  margin-top:40px;
+
+  display:grid;
+
+  grid-template-columns:
+    repeat(2,1fr);
+
+  gap:20px;
+}
+
+.contato-item{
+  padding:28px;
+
+  border:
+    1px solid var(--line);
+
+  border-radius:20px;
+
+  text-decoration:none;
+
+  color:white;
+
+  background:
+    rgba(255,255,255,.02);
+
+  transition:.35s;
+}
+
+.contato-item:hover{
+  border-color:var(--green);
+
+  transform:translateY(-4px);
+}
+
+.contato-item strong{
+  display:block;
+
+  color:var(--green);
+
+  margin-bottom:10px;
+
+  letter-spacing:.18em;
+
+  text-transform:uppercase;
+
+  font-size:12px;
+}
+
+/* FOOTER */
+
+footer{
+  padding:60px 24px;
+
+  border-top:
+    1px solid var(--line);
+
+  text-align:center;
+
+  color:
+    rgba(255,255,255,.45);
+}
+
+/* RESPONSIVO */
+
+@media(max-width:1024px){
+
+  .hero-content{
+    grid-template-columns:1fr;
+
+    text-align:center;
+  }
+
+  .hero-left{
+    margin:0 auto;
+  }
+
+  .hero-text{
+    margin-left:auto;
+    margin-right:auto;
+  }
+
+  .hero-actions{
+    justify-content:center;
+  }
+
+  .hero-right{
+    justify-content:center;
+
+    min-height:500px;
+  }
+
+  .hero-caboclo{
+    height:60vh;
+
+    transform:none;
+  }
+
+  .hero-glow{
+    left:50%;
+    right:auto;
+
+    transform:
+      translateX(-50%);
+  }
+
+  .contato-grid{
+    grid-template-columns:1fr;
+  }
+}
+
+@media(max-width:768px){
+
+  .hero-content{
+    padding:
+      110px
+      24px
+      40px;
+  }
+
+  .hero-main{
+    font-size:74px;
+  }
+
+  .hero-sub{
+    font-size:38px;
+  }
+
+  .hero-text{
+    font-size:16px;
+  }
+
+  .hero-caboclo{
+    height:48vh;
+  }
+
+  .hero-right{
+    min-height:320px;
+  }
+
+}
+
+</style>
 </head>
+
 <body>
 
-  <!-- ════ NAV ════ -->
-  <nav id="navbar">
-    <a href="#" class="nav-logo">
-      <span class="logo-wrap"><img src="https://matavirgem.org/logo.png" alt="Logo"/></span>
-      <div class="nav-logo-text">
-        Aruanda
-        <small>Mata Virgem</small>
+<section id="hero">
+
+  <div class="hero-overlay"></div>
+
+  <div class="hero-content">
+
+    <div class="hero-left">
+
+      <div class="hero-badge">
+        <span class="badge-dot"></span>
+        Umbanda • Jurema Sagrada
       </div>
-    </a>
 
-    <ul class="nav-links" id="navLinks">
-      <li><a href="#sobre">A Casa</a></li>
-      <li><a href="#proximaGira">Próxima Gira</a></li>
-      <li><a href="#agenda">Agenda</a></li>
-      <li><a href="#fotos">Galeria</a></li>
-      <li><a href="#contato">Contato</a></li>
-    </ul>
+      <div class="hero-logo">
+        <img src="logo.png" alt="Logo">
+      </div>
 
-    <a class="nav-canal" href="https://whatsapp.com/channel/0029VbBrPIcDp2Q3Wj8J9q22" target="_blank">
-      <span class="pulse"></span> Canal de avisos
-    </a>
+      <h1 class="hero-title">
 
-    <button class="hamburger" id="hamburger" aria-label="Menu">
-      <span></span><span></span><span></span>
-    </button>
-  </nav>
-
-  <div class="mobile-nav" id="mobileNav">
-    <a href="#sobre" onclick="fecharMenu()">A Casa</a>
-    <a href="#proximaGira" onclick="fecharMenu()">Próxima Gira</a>
-    <a href="#agenda" onclick="fecharMenu()">Agenda</a>
-    <a href="#fotos" onclick="fecharMenu()">Galeria</a>
-    <a href="#contato" onclick="fecharMenu()">Contato</a>
-    <a href="https://whatsapp.com/channel/0029VbBrPIcDp2Q3Wj8J9q22" target="_blank">Canal no WhatsApp ↗</a>
-  </div>
-
-  <main>
-
-  <!-- ════ HERO ════ -->
-  <section id="hero">
-    <div class="hero-bgimg"></div>
-    <div class="hero-leaves">
-      <svg class="leaf l1" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1"><path d="M50 5 C 25 25, 25 50, 50 95 C 75 50, 75 25, 50 5 Z M50 5 L50 95"/></svg>
-      <svg class="leaf l2" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1"><path d="M50 5 C 25 25, 25 50, 50 95 C 75 50, 75 25, 50 5 Z M50 5 L50 95"/></svg>
-      <svg class="leaf l3" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1"><path d="M50 5 C 25 25, 25 50, 50 95 C 75 50, 75 25, 50 5 Z M50 5 L50 95"/></svg>
-      <svg class="leaf l4" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1"><path d="M50 5 C 25 25, 25 50, 50 95 C 75 50, 75 25, 50 5 Z M50 5 L50 95"/></svg>
-    </div>
-
-    <div class="hero-content">
-      <div class="hero-text">
-        <div class="hero-emblem">
-          <img src="https://matavirgem.org/logo.png" alt=""/>
-        </div>
-
-        <span class="hero-tag">
-          <span class="dot"></span>
-          Umbanda · Jurema Sagrada
+        <span class="hero-kicker">
+          TEMPLO ESCOLA
         </span>
 
-        <h1 class="hero-h1">
-          <span class="kicker">Templo Escola</span>
-          <span class="title">Aruanda</span>
-          <span class="sub">de Mata Virgem</span>
-        </h1>
+        <span class="hero-main">
+          Aruanda
+        </span>
 
-        <p class="hero-sub">Um terreiro vivo, onde os encantados da mata se manifestam em gira, em estudo, em encontro. Aqui se aprende a escutar o caboclo e a respeitar a jurema.</p>
+        <span class="hero-sub">
+          de Mata Virgem
+        </span>
 
-        <div class="hero-btns">
-          <a class="btn-sol" href="#agenda">Ver próximas giras →</a>
-          <a class="btn-cont" href="#sobre">Conhecer a casa</a>
-        </div>
+      </h1>
 
-        <div class="proxima-hero" id="proximaHeroCard">
-          <!-- Preenchido por JS -->
-        </div>
-      </div>
+      <p class="hero-text">
+        Um terreiro vivo, onde os encantados da mata se manifestam
+        em gira, em estudo e em encontro.
+        Aqui se aprende a escutar o caboclo
+        e respeitar a força da jurema.
+      </p>
 
-      <div class="hero-figura">
-        <img src="caboclo.png" alt="Caboclo"/>
-      </div>
-    </div>
+      <div class="hero-actions">
 
-    <div class="hero-redes">
-      <a href="https://instagram.com/te.aruanda" target="_blank" title="Instagram">
-        <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="4"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="currentColor"/></svg>
-      </a>
-      <a href="https://wa.me/5511969444666" target="_blank" title="WhatsApp">
-        <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M3 21l1.7-5A8 8 0 1 1 8 19.3z"/></svg>
-      </a>
-    </div>
-
-    <div class="scroll-hint">
-      <span>Descer</span>
-      <span class="line"></span>
-    </div>
-  </section>
-
-  <!-- ════ SOBRE ════ -->
-  <section id="sobre" class="reveal">
-    <div class="container">
-      <div class="sec-head">
-        <p class="sec-label">A casa</p>
-        <h2 class="sec-title">O que é o <em>Aruanda</em>.</h2>
-      </div>
-
-      <p class="sobre-frase">Somos casa de Umbanda e Jurema Sagrada caminhando juntas, na ciência da mata e na voz dos guias.</p>
-    </div>
-  </section>
-
-  <!-- ════ PRÓXIMA GIRA ════ -->
-  <section id="proximaGira" class="reveal">
-    <div class="container">
-      <div class="sec-head">
-        <p class="sec-label">Convite</p>
-        <h2 class="sec-title">A próxima <em>gira</em>.</h2>
-        <p class="sec-sub">Marque na sua agenda. As portas abrem para quem chega com respeito.</p>
-      </div>
-      <div class="prox-grid" id="proximaGiraGrid">
-        <!-- JS -->
-      </div>
-    </div>
-  </section>
-
-  <!-- ════ AGENDA ════ -->
-  <section id="agenda" class="reveal">
-    <div class="container">
-      <div class="sec-head">
-        <p class="sec-label">Calendário</p>
-        <h2 class="sec-title">Agenda de <em id="agendaTitulo">Maio</em>.</h2>
-        <p class="sec-sub">Datas das próximas giras</p>
-      </div>
-      <div class="agenda-banner" id="agendaBanner">
-        <img src="" alt="Agenda" id="agendaBannerImg" style="display:none"/>
-      </div>
-      <div class="agenda-lista" id="agendaLista">
-        <!-- JS -->
-      </div>
-    </div>
-  </section>
-
-  <!-- ════ GALERIA ════ -->
-  <section id="fotos" class="reveal">
-    <div class="container">
-      <div class="sec-head">
-        <p class="sec-label">Memória</p>
-        <h2 class="sec-title">Momentos da <em>casa</em>.</h2>
-      </div>
-      <div class="galeria-grid" id="galeriaGrid">
-        <!-- JS -->
-      </div>
-      <div class="galeria-footer">
-        <a class="btn-instagram" href="https://instagram.com/te.aruanda" target="_blank">
-          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".9" fill="currentColor"/></svg>
-          Ver mais no @te.aruanda
+        <a href="#agenda" class="btn-primary">
+          Ver próximas giras
         </a>
-      </div>
-    </div>
-  </section>
 
-  <!-- ════ NEWS ════ -->
-  <section id="news" class="reveal">
-    <div class="container">
-      <div class="news-card">
-        <p class="sec-label">Receba primeiro</p>
-        <h2>Saiba das giras <em>antes</em> de todo mundo.</h2>
-        <p class="sub">Cadastre seu email para receber datas, horários e vagas pra consulta — direto, sem ruído, sem spam.</p>
-        <form class="news-form" id="newsForm" onsubmit="return inscreverNews(event)">
-          <div class="news-row">
-            <input type="text" name="nome" placeholder="Seu nome" required/>
-          </div>
-          <div class="news-row">
-            <input type="email" name="email" placeholder="seu@email.com" required/>
-            <button type="submit">Inscrever</button>
-          </div>
-          <p class="news-fine">Você pode sair quando quiser. Sem custo.</p>
-          <p id="newsMsg"></p>
-        </form>
-      </div>
-    </div>
-  </section>
-
-  <!-- ════ LOCAL ════ -->
-  <section id="local" class="reveal">
-    <div class="container">
-      <div class="sec-head">
-        <p class="sec-label">Onde estamos</p>
-        <h2 class="sec-title">Como <em>chegar</em>.</h2>
-      </div>
-      <div class="local-info">
-        <div>
-          <p class="local-info-label">Endereço</p>
-          <p class="local-info-val">Rua Espanha, 1178<br/>Santo André · SP</p>
-        </div>
-        <div>
-          <p class="local-info-label">Acesso</p>
-          <p class="local-info-val">Próximo a transporte público, com estacionamento na rua.</p>
-        </div>
-        <div>
-          <p class="local-info-label">Direções</p>
-          <p class="local-info-val"><a href="https://www.google.com/maps?q=Rua+Espanha+1178+Santo+Andre" target="_blank">Abrir no Maps ↗</a></p>
-        </div>
-      </div>
-      <div class="mapa-wrap">
-        <iframe src="https://www.google.com/maps?q=Rua+Espanha+1178+Santo+Andre&output=embed" allowfullscreen loading="lazy"></iframe>
-      </div>
-    </div>
-  </section>
-
-  <!-- ════ CONTATO ════ -->
-  <section id="contato" class="reveal">
-    <div class="container">
-      <div class="sec-head">
-        <p class="sec-label">Fale com a casa</p>
-        <h2 class="sec-title">Contato <em>direto</em>.</h2>
-      </div>
-      <div class="contato-grid">
-        <a class="contato-item" href="https://wa.me/5511969444666" target="_blank">
-          <div class="contato-icon">
-            <svg fill="none" stroke="#3dff90" stroke-width="1.5" viewBox="0 0 24 24"><path d="M3 21l1.7-5A8 8 0 1 1 8 19.3z"/></svg>
-          </div>
-          <div class="contato-txt">
-            <strong>WhatsApp</strong>
-            <span>Tire dúvidas com a casa</span>
-          </div>
+        <a href="#sobre" class="btn-secondary">
+          Conhecer a casa
         </a>
-        <a class="contato-item" href="https://instagram.com/te.aruanda" target="_blank">
-          <div class="contato-icon">
-            <svg fill="none" stroke="#3dff90" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="4"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="#3dff90"/></svg>
-          </div>
-          <div class="contato-txt">
-            <strong>Instagram</strong>
-            <span>@te.aruanda</span>
-          </div>
-        </a>
-      </div>
-    </div>
-  </section>
 
-  </main>
+      </div>
 
-  <!-- ════ FOOTER ════ -->
-  <footer>
-    <div class="foot-top">
-      <div>
-        <div class="foot-brand-wrap">
-          <img src="https://matavirgem.org/logo.png" alt=""/>
-          <div class="foot-brand">
-            Templo Escola Aruanda
-            <small>de Mata Virgem</small>
-          </div>
-        </div>
-        <p class="foot-quote">"Salve a mata, salve o mestre, salve a luz que nunca cessa."</p>
-      </div>
-      <div class="foot-col">
-        <h4>Navegar</h4>
-        <ul>
-          <li><a href="#sobre">A Casa</a></li>
-          <li><a href="#proximaGira">Próxima Gira</a></li>
-          <li><a href="#agenda">Agenda</a></li>
-          <li><a href="#fotos">Galeria</a></li>
-        </ul>
-      </div>
-      <div class="foot-col">
-        <h4>Conectar</h4>
-        <ul>
-          <li><a href="https://wa.me/5511969444666" target="_blank">WhatsApp</a></li>
-          <li><a href="https://instagram.com/te.aruanda" target="_blank">Instagram</a></li>
-          <li><a href="https://whatsapp.com/channel/0029VbBrPIcDp2Q3Wj8J9q22" target="_blank">Canal de avisos</a></li>
-        </ul>
-      </div>
-      <div class="foot-col">
-        <h4>Onde</h4>
-        <ul>
-          <li><a href="https://www.google.com/maps?q=Rua+Espanha+1178+Santo+Andre" target="_blank">Rua Espanha, 1178<br/>Santo André · SP</a></li>
-        </ul>
-      </div>
     </div>
-    <div class="foot-bottom">
-      <p class="foot-copy">© 2025 Aruanda de Mata Virgem · <span id="pubDate"></span></p>
-      <p class="foot-admin"><a href="admin.html" target="_blank">Painel administrativo ↗</a></p>
-    </div>
-  </footer>
 
-  <!-- ════ LIGHTBOX ════ -->
-  <div class="lightbox" id="lightbox" onclick="fecharLbClick(event)">
-    <div class="lb-container">
-      <button class="lb-close" onclick="fecharLb(event)" aria-label="Fechar">×</button>
-      <img id="lb-img" src="" alt=""/>
-      <div class="lb-nav">
-        <button class="lb-btn" onclick="anteriorFoto(event)">‹</button>
-        <button class="lb-btn" onclick="proximaFoto(event)">›</button>
-      </div>
-      <div class="lb-counter">
-        <span id="lb-atual">1</span> / <span id="lb-total">1</span>
-      </div>
+    <div class="hero-right">
+
+      <div class="hero-glow"></div>
+
+      <img
+        src="caboclo.png"
+        alt="Caboclo"
+        class="hero-caboclo"
+      >
+
     </div>
+
   </div>
 
-  <!-- ════ FLOAT ════ -->
-  <a class="btn-flutuante" id="btnCanal" href="https://whatsapp.com/channel/0029VbBrPIcDp2Q3Wj8J9q22" target="_blank">
-    <svg fill="#07140c" viewBox="0 0 24 24"><path d="M17.47 14.38c-.27-.14-1.6-.79-1.85-.88-.25-.09-.43-.14-.61.14-.18.27-.7.88-.86 1.06-.16.18-.31.2-.58.07-.27-.14-1.14-.42-2.17-1.34-.8-.71-1.34-1.59-1.5-1.86-.16-.27-.02-.42.12-.55.12-.12.27-.31.41-.47.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.48-.07-.14-.61-1.47-.84-2.01-.22-.53-.44-.46-.61-.47l-.52-.01c-.18 0-.48.07-.73.34-.25.27-.97.95-.97 2.31 0 1.36.99 2.68 1.13 2.86.14.18 1.95 2.98 4.73 4.18.66.29 1.18.46 1.58.59.66.21 1.26.18 1.74.11.53-.08 1.6-.65 1.83-1.28.22-.63.22-1.17.16-1.28-.07-.11-.25-.18-.52-.31z"/><path d="M12 2a10 10 0 00-8.45 15.34L2 22l4.8-1.52A10 10 0 1012 2zm0 18.33a8.33 8.33 0 01-4.24-1.16l-.3-.18-3.12.99.99-3.04-.2-.31A8.33 8.33 0 1112 20.33z"/></svg>
-    Receber avisos das giras
-  </a>
+</section>
 
-  <script>
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
-    }, { threshold: .1 });
-    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+<section id="sobre">
 
-    function inscreverNews(e) {
-      e.preventDefault();
-      const msg = document.getElementById('newsMsg');
-      msg.textContent = '✓ Pronto! Você foi inscrito(a) na lista da casa.';
-      e.target.reset();
-      setTimeout(() => msg.textContent = '', 6000);
-      return false;
-    }
-  </script>
+  <div class="container">
 
-  <!-- Firebase — PRESERVADO -->
-  <script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js";
-    import { getFirestore, collection, query, orderBy, onSnapshot } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore.js";
+    <h2 class="section-title">
+      O que é o
+      <span>Aruanda</span>
+    </h2>
 
-    const firebaseConfig = {
-      apiKey: "AIzaSyCDt7n4hoxQlF0BRLWB_bBouO4A35YsZVY",
-      authDomain: "mata-virgem.firebaseapp.com",
-      projectId: "mata-virgem",
-      storageBucket: "mata-virgem.firebasestorage.app",
-      messagingSenderId: "351134240123",
-      appId: "1:351134240123:web:86a041fee58b856ea3c1de",
-      measurementId: "G-KM7DHTH737"
-    };
+    <p class="section-text">
+      Somos uma casa de Umbanda e Jurema Sagrada.
+      Um espaço de desenvolvimento espiritual,
+      estudo, firmeza, respeito aos guias
+      e conexão com a força da mata.
+    </p>
 
-    const app = initializeApp(firebaseConfig);
-    const db = getFirestore(app);
+  </div>
 
-    let dados = { eventos: [], proximaGira: {}, galeria: [], agendaBanner: {} };
+</section>
 
-    async function carregarDados() {
-      try {
-        onSnapshot(query(collection(db, 'eventos'), orderBy('dia', 'asc')), (snapshot) => {
-          dados.eventos = [];
-          snapshot.forEach((doc) => dados.eventos.push({ id: doc.id, ...doc.data() }));
-          renderizarAgenda();
-        });
-        onSnapshot(query(collection(db, 'proximaGira')), (snapshot) => {
-          if (!snapshot.empty) {
-            dados.proximaGira = snapshot.docs[0].data();
-            renderizarProximaGira();
-            renderizarProximaHero();
-          }
-        });
-        onSnapshot(query(collection(db, 'galeria')), (snapshot) => {
-          dados.galeria = [];
-          snapshot.forEach((doc) => dados.galeria.push({ id: doc.id, ...doc.data() }));
-          renderizarGaleria();
-        });
-        onSnapshot(query(collection(db, 'agendaBanner')), (snapshot) => {
-          if (!snapshot.empty) {
-            dados.agendaBanner = snapshot.docs[0].data();
-            renderizarAgenda();
-          }
-        });
-      } catch (erro) { console.error('Erro Firebase:', erro); }
-    }
+<section id="agenda">
 
-    function renderizarProximaHero() {
-      const card = document.getElementById('proximaHeroCard');
-      const prox = dados.proximaGira;
-      if (prox && prox.data) {
-        card.innerHTML = `
-          <div>
-            <p class="proxima-hero-label">Próxima gira</p>
-            <p class="proxima-hero-nome">${prox.nome}</p>
-            <p class="proxima-hero-data">${prox.dia} · ${prox.data} · ${prox.hora}</p>
-          </div>
-        `;
-      }
-    }
+  <div class="container">
 
-    function renderizarProximaGira() {
-      const grid = document.getElementById('proximaGiraGrid');
-      const prox = dados.proximaGira;
-      if (!prox.data) return;
-      grid.innerHTML = `
-        <div class="prox-img"><img src="${prox.imagem}" alt="${prox.nome}"/></div>
-        <div class="prox-info">
-          <p class="sec-label">${prox.data}</p>
-          <h2><em>${prox.nome}</em></h2>
-          <p>${prox.descricao}</p>
-          <p><strong>${prox.dia}</strong> · ${prox.data} · <strong>${prox.hora}</strong></p>
-          <a class="btn-sol" href="#contato">Confirmar presença →</a>
-        </div>
-      `;
-    }
+    <h2 class="section-title">
+      Próximas
+      <span>Giras</span>
+    </h2>
 
-    function renderizarAgenda() {
-      const banner = document.getElementById('agendaBannerImg');
-      if (dados.agendaBanner && dados.agendaBanner.url) {
-        banner.src = dados.agendaBanner.url;
-        banner.style.display = 'block';
-      } else {
-        banner.style.display = 'none';
-      }
-      const lista = document.getElementById('agendaLista');
-      lista.innerHTML = dados.eventos.map(evt => `
-        <div class="evento">
-          <div class="evento-data-box">
-            <div class="evento-dia">${evt.dia}</div>
-            <div class="evento-mes">${evt.mes}</div>
-          </div>
-          <div class="evento-sep"></div>
-          <div class="evento-info">
-            <div class="evento-semana">${evt.semana}</div>
-            <div class="evento-nome">${evt.nome}</div>
-          </div>
-          <div class="evento-hora">${evt.hora}</div>
-        </div>
-      `).join('');
-    }
+    <div class="agenda-card">
 
-    function renderizarGaleria() {
-      const grid = document.getElementById('galeriaGrid');
-      grid.innerHTML = dados.galeria.map((foto, idx) => `
-        <div class="gal-item" onclick="abrirLb(${idx})">
-          <img src="${foto.url}" alt="${foto.titulo || ''}"/>
-          <div class="gal-overlay"><div class="gal-icon-wrap">Ver</div></div>
-        </div>
-      `).join('');
-    }
+      <div class="evento">
+        <h3>Caboclos da Mata</h3>
+        <p>Sexta-feira • 20h</p>
+      </div>
 
-    let galeriaAtual = 0;
-    window.abrirLb = function(idx) {
-      galeriaAtual = idx;
-      const foto = dados.galeria[idx];
-      if (!foto) return;
-      document.getElementById('lb-img').src = foto.url;
-      document.getElementById('lb-atual').textContent = idx + 1;
-      document.getElementById('lb-total').textContent = dados.galeria.length;
-      document.getElementById('lightbox').classList.add('open');
-      document.body.style.overflow = 'hidden';
-    };
-    window.fecharLb = function(e) { if (e) e.stopPropagation(); document.getElementById('lightbox').classList.remove('open'); document.body.style.overflow = ''; };
-    window.fecharLbClick = function(e) { if (e.target.id === 'lightbox') fecharLb(); };
-    window.proximaFoto = function(e) { if (e) e.stopPropagation(); galeriaAtual = (galeriaAtual + 1) % dados.galeria.length; abrirLb(galeriaAtual); };
-    window.anteriorFoto = function(e) { if (e) e.stopPropagation(); galeriaAtual = (galeriaAtual - 1 + dados.galeria.length) % dados.galeria.length; abrirLb(galeriaAtual); };
-    window.fecharMenu = function() { document.getElementById('hamburger').classList.remove('open'); document.getElementById('mobileNav').classList.remove('open'); };
+      <div class="evento">
+        <h3>Pretos Velhos</h3>
+        <p>Domingo • 18h</p>
+      </div>
 
-    function atualizarBotaoFlutuante() {
-      const scrollY = window.scrollY;
-      const winH = window.innerHeight;
-      const docH = document.documentElement.scrollHeight;
-      const footer = document.querySelector('footer');
-      // some 200px antes do final do scroll OU quando o footer estiver visivel
-      const footerTop = footer ? footer.getBoundingClientRect().top : Infinity;
-      const perto_do_fim = footerTop < winH - 60;
-      const passou_do_hero = scrollY > 400;
-      document.getElementById('btnCanal').classList.toggle('show', passou_do_hero && !perto_do_fim);
-    }
-    window.addEventListener('scroll', () => {
-      document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 40);
-      atualizarBotaoFlutuante();
-    });
-    window.addEventListener('resize', atualizarBotaoFlutuante);
-    document.getElementById('hamburger').addEventListener('click', () => {
-      document.getElementById('hamburger').classList.toggle('open');
-      document.getElementById('mobileNav').classList.toggle('open');
-    });
-    document.addEventListener('keydown', e => {
-      if (e.key === 'Escape') fecharLb();
-      if (e.key === 'ArrowRight' && document.getElementById('lightbox').classList.contains('open')) proximaFoto();
-      if (e.key === 'ArrowLeft' && document.getElementById('lightbox').classList.contains('open')) anteriorFoto();
-    });
+      <div class="evento">
+        <h3>Jurema Sagrada</h3>
+        <p>Quarta-feira • 19h30</p>
+      </div>
 
-    document.getElementById('pubDate').textContent = new Date().toLocaleString('pt-BR', { day:'2-digit', month:'2-digit', year:'numeric' });
-    carregarDados();
-  </script>
+    </div>
+
+  </div>
+
+</section>
+
+<section id="contato">
+
+  <div class="container">
+
+    <h2 class="section-title">
+      Fale com a
+      <span>Casa</span>
+    </h2>
+
+    <div class="contato-grid">
+
+      <a
+        href="https://instagram.com"
+        target="_blank"
+        class="contato-item"
+      >
+        <strong>Instagram</strong>
+        @te.aruanda
+      </a>
+
+      <a
+        href="https://wa.me/5511999999999"
+        target="_blank"
+        class="contato-item"
+      >
+        <strong>WhatsApp</strong>
+        Entrar em contato
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+<footer>
+  Templo Escola Aruanda de Mata Virgem
+</footer>
 
 </body>
 </html>
-
-<style id="__om-edit-overrides">
-#hero .small >:is(h1,h2,h3,h4,h5,h6,p,li,dt,dd,blockquote,figcaption,label,span,a,em,strong,small,td,th,caption) { background-color: rgb(106, 115, 110) !important }
-#hero .small >:is(h1,h2,h3,h4,h5,h6,p,li,dt,dd,blockquote,figcaption,label,span,a,em,strong,small,td,th,caption) { opacity: 0 !important }
-#hero .small >:is(h1,h2,h3,h4,h5,h6,p,li,dt,dd,blockquote,figcaption,label,span,a,em,strong,small,td,th,caption) { opacity: 1 !important }
-#hero .small >:is(h1,h2,h3,h4,h5,h6,p,li,dt,dd,blockquote,figcaption,label,span,a,em,strong,small,td,th,caption) { background-color: rgb(65, 111, 74) !important }
-#hero .small >:is(h1,h2,h3,h4,h5,h6,p,li,dt,dd,blockquote,figcaption,label,span,a,em,strong,small,td,th,caption) { background-color: rgb(73, 128, 84) !important }
-#hero .small >:is(h1,h2,h3,h4,h5,h6,p,li,dt,dd,blockquote,figcaption,label,span,a,em,strong,small,td,th,caption) { background-color: rgba(73, 128, 84, 0) !important }
-</style>
+```
