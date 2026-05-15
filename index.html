@@ -1195,7 +1195,7 @@
 
   <!-- ════ HERO ════ -->
   <section id="hero">
-    <div class="hero-bgimg"></div>
+    <div class="hero-bgimg" style="height: 90px; opacity: 0.5; background-size: auto"></div>
     <div class="hero-leaves">
       <svg class="leaf l1" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1"><path d="M50 5 C 25 25, 25 50, 50 95 C 75 50, 75 25, 50 5 Z M50 5 L50 95"/></svg>
       <svg class="leaf l2" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1"><path d="M50 5 C 25 25, 25 50, 50 95 C 75 50, 75 25, 50 5 Z M50 5 L50 95"/></svg>
@@ -1203,7 +1203,7 @@
       <svg class="leaf l4" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1"><path d="M50 5 C 25 25, 25 50, 50 95 C 75 50, 75 25, 50 5 Z M50 5 L50 95"/></svg>
     </div>
 
-    <div class="hero-content">
+    <div class="hero-content" style="font-size: 1px">
       <div class="hero-emblem">
         <img src="https://matavirgem.org/logo.png" alt=""/>
       </div>
@@ -1214,14 +1214,14 @@
       </span>
 
       <h1 class="hero-h1">
-        <span class="one">Templo Escola</span>
-        <span class="italic">Aruanda</span>
-        <span class="small">de Mata Virgem · Santo André · SP</span>
+        <span class="one" style="font-size: 96px">Templo Escola</span>
+        <span class="italic" style="font-size: 1px">Aruanda
+de Mata Virgem</span>
+        <span class="small" style="font-size: 96px">de Mata Virgem</span>
       </h1>
 
       <p class="hero-sub">
-        Um terreiro vivo, onde os encantados da mata se manifestam em gira, em estudo, em encontro. Aqui se aprende a escutar o caboclo e a respeitar a jurema.
-      </p>
+</p>
 
       <div class="hero-btns">
         <a class="btn-sol" href="#agenda">Ver próximas giras →</a>
@@ -1658,3 +1658,12 @@ Vivencias de Jurema Sagrada </p>
 
 </body>
 </html>
+
+<style id="__om-edit-overrides">
+#hero .small >:is(h1,h2,h3,h4,h5,h6,p,li,dt,dd,blockquote,figcaption,label,span,a,em,strong,small,td,th,caption) { background-color: rgb(106, 115, 110) !important }
+#hero .small >:is(h1,h2,h3,h4,h5,h6,p,li,dt,dd,blockquote,figcaption,label,span,a,em,strong,small,td,th,caption) { opacity: 0 !important }
+#hero .small >:is(h1,h2,h3,h4,h5,h6,p,li,dt,dd,blockquote,figcaption,label,span,a,em,strong,small,td,th,caption) { opacity: 1 !important }
+#hero .small >:is(h1,h2,h3,h4,h5,h6,p,li,dt,dd,blockquote,figcaption,label,span,a,em,strong,small,td,th,caption) { background-color: rgb(65, 111, 74) !important }
+#hero .small >:is(h1,h2,h3,h4,h5,h6,p,li,dt,dd,blockquote,figcaption,label,span,a,em,strong,small,td,th,caption) { background-color: rgb(73, 128, 84) !important }
+#hero .small >:is(h1,h2,h3,h4,h5,h6,p,li,dt,dd,blockquote,figcaption,label,span,a,em,strong,small,td,th,caption) { background-color: rgba(73, 128, 84, 0) !important }
+</style>
